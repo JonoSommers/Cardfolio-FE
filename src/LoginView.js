@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 function LoginView() {
 
-    const [formType, setFormType] = useState("login"); 
+    const [formType, setFormType] = useState(null); 
     const [username, setUsername] = useState("")
 
     const handleSubmit = (event) => {
@@ -17,11 +17,14 @@ function LoginView() {
 
     return (
     <main className="Snorlax">
-        <header>Cardfolio</header>
         <div>
+            {!formType && (
+            <>
             <button onClick={() => setFormType("login")}>Login</button>
             <button onClick={() => setFormType("signup")}>Create Account</button>
-
+            </>
+            )}
+            { formType && (
             <form onSubmit={handleSubmit}>
                 <h2>{formType === "login" ? "Please Sign In" : "Create an Account"}</h2>
                 <label>
@@ -37,6 +40,7 @@ function LoginView() {
                 {formType === "login" ? "Login" : "Sign Up"}
                 </button>
             </form>
+            )}
         </div>
     </main>
     );
