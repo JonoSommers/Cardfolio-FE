@@ -1,0 +1,48 @@
+.snorlax-feet {
+    display: flex;
+    gap: 50px; /* Space between feet */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    position: relative;
+}
+
+    .foot {
+    width: 120px;
+    height: 100px;
+    background-color: #7f6f62;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 10px;
+    z-index: 10;
+}
+
+.foot::before {
+    content: "";
+    position: absolute;
+    width: 160px; 
+    height: 140px; 
+    background-color: #f5e1b9;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+    .claw {
+    width: 30px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -5px;
+    z-index: 20;
+}
+
+    .claw:nth-child(1) { left: 15px; }
+    .claw:nth-child(2) { left: 50%; transform: translateX(-50%); }
+    .claw:nth-child(3) { right: 15px; }
