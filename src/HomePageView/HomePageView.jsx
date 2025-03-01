@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import "./HomePageView.css"
-import SearchComponent from './SearchComponent.jsx'
+import SearchComponent from '../SearchComponent/SearchComponent.jsx'
 
 function HomePageView() {
   const displayName = useParams().username
