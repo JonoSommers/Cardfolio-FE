@@ -1,6 +1,6 @@
 import "./LoginView.css";
+import { Link } from "react-router-dom"
 import { useState } from "react";
-import SnorlaxFeet from "./SnorlaxFeet";
 
 function LoginView() {
   const [username, setUsername] = useState("");
@@ -56,9 +56,14 @@ function LoginView() {
           <button className="submit_button" type="submit" disabled={!username.trim()}>
             Create Account
           </button>
+          <Link to={"/home"}>
+            <button className="login_button" type="submit" disabled={!username.trim()}>
+                Login
+            </button>
+          </Link>
         </form>
         {message && <p>{message}</p>} {/* Displays the backend message */}
-        <SnorlaxFeet />
+        
       </div>
     </main>
   );

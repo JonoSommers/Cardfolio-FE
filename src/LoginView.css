@@ -3,6 +3,13 @@ h1 {
     margin-bottom: 50px;
     font-size: 100px;
 }
+p {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
 
 button {
     display: flex;
@@ -14,8 +21,8 @@ button {
     font-size: 35px;
 }
 
-.login_button {
-    margin-top: 200px;
+:link {
+    text-decoration: none;
 }
 
 body {
