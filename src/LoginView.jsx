@@ -62,7 +62,7 @@ function LoginView() {
             </button>
           </Link>
         </form>
-        {message && <p>{message}</p>} {/* Displays the backend message */}
+        {message && <p>{message}</p>}
         
       </div>
     </main>
