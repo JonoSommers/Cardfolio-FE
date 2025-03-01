@@ -56,14 +56,13 @@ function LoginView() {
           <button className="submit_button" type="submit" disabled={!username.trim()}>
             Create Account
           </button>
-          <Link to={"/home"}>
+          <Link to={`/${username}`}>
             <button className="login_button" type="submit" disabled={!username.trim()}>
                 Login
             </button>
           </Link>
         </form>
         {message && <p>{message}</p>}
-        
       </div>
     </main>
   );

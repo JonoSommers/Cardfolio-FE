@@ -9,7 +9,7 @@ function App() {
             <section className="Snorlax">
                 <Routes>
                     <Route path="/" element={<LoginView />} />
-                    <Route path="/home" element={<HomePageView />} />
+                    <Route path="/:username" element={<HomePageView />} />
                 </Routes>
             </section>
         </div>

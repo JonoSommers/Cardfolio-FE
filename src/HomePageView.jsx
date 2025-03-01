@@ -1,10 +1,13 @@
+import { useParams } from 'react-router-dom'
 import "./HomePageView.css"
 
-function HomePageView () {
+function HomePageView() {
+  const displayName = useParams().username
+
   return( 
-    <header>
-      <h1>Howdy</h1>
-    </header>
+    <div>
+      <h1>{displayName}</h1>
+    </div>
   )   
 }
 
