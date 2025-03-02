@@ -10,6 +10,9 @@ function HomePageView() {
       <Link to={'/pokemon_search'}>
         <button>Pokemon</button>
       </Link>
+      <Link to={'/mtg_search'}>
+        <button>MTG</button>
+      </Link>
     </div>
   )   
 }

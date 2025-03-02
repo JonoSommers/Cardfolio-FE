@@ -5,7 +5,7 @@ import CardsContainer from '../CardsContainer/CardsContainer'
 const fetchPokemonCards = 'https://api.pokemontcg.io/v2/cards?page=1&pageSize=100'
 
 function PokemonSearchView() {
-    const [cards, setCards] = useState([])
+    const [pokemonCards, setPokemonCards] = useState([])
 
     useEffect(() => {
         fetch(fetchPokemonCards, {
@@ -15,14 +15,14 @@ function PokemonSearchView() {
         })
         .then(response => response.json())
         .then(data => {
-            setCards(data.data)
+            setPokemonCards(data.data)
         })
         .catch(error => console.log('message: ', error.message))
     }, [])
 
     return (
         <section>
-            <CardsContainer cards={ cards } />
+            <CardsContainer cards={ pokemonCards } />
         </section>
     )
 }

@@ -11,10 +11,11 @@ function CardsContainer({ cards }) {
                         </div>
                     );
                 }
-                if (card.supertype === 'Magic') {
+                else if (card.imageUrl) {
+                    console.log('card: ', card)
                     return (
                         <div key={card.id} className="card">
-                            <img src={card.image_url} alt={card.name} />
+                            <img src={card.imageUrl} alt={card.name} />
                         </div>
                     );
                 }
