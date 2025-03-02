@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import "./PokemonSearchView.css"
-import CardsContainer from '../CardsContainer/CardsContainer'
+import PokemonCardsContainer from '../PokemonCardsContainer/PokemonCardsContainer'
 
 const fetchPokemonCards = 'https://api.pokemontcg.io/v2/cards?page=1&pageSize=100'
 
@@ -20,9 +20,20 @@ function PokemonSearchView() {
         .catch(error => console.log('message: ', error.message))
     }, [])
 
+    const cards = pokemonCards.map(card => {
+        return (
+            < PokemonCardsContainer
+                key = { card.id }
+                id = { card.id }
+                p_card_path = { card.images.small }
+                p_card_name = { card.name }
+            />
+        )
+    })
+
     return (
-        <section>
-            <CardsContainer cards={ pokemonCards } />
+        <section className="PokemonSearchView">
+            { cards }
         </section>
     )
 }
