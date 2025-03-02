@@ -1,0 +1,36 @@
+.CardsContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: space-between;
+}
+
+.card img {
+  width: 100%; 
+  height: auto; 
+  max-width: 250px; 
+  border-radius: 12px;
+  object-fit: cover; 
+}
+
+
+@media (max-width: 768px) { 
+  .card {
+      width: 200px;
+  }
+
+  .card img {
+      max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+      width: 150px; 
+  }
+
+  .card img {
+      max-width: 150px; 
+  }
+}

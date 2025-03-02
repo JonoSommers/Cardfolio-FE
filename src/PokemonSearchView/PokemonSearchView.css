@@ -1,4 +1,4 @@
-.CardsContainer {
+/* .CardsContainer {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -10,7 +10,7 @@
   width: 100%; 
   height: auto; 
   max-width: 250px; 
-  border-radius: 8px;
+  border-radius: 12px;
   object-fit: cover; 
 }
 
@@ -33,4 +33,4 @@
   .card img {
       max-width: 150px; 
   }
-}
+} */
