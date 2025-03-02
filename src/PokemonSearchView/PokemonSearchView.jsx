@@ -7,7 +7,7 @@ const fetchPokemonCards = 'https://api.pokemontcg.io/v2/cards?page=1&pageSize=10
 function PokemonSearchView() {
     const [cards, setCards] = useState([])
 
-    function getPokemonCards() {
+    useEffect(() => {
         fetch(fetchPokemonCards, {
             headers: {
                 'Content-Type': 'application/json'
@@ -18,10 +18,6 @@ function PokemonSearchView() {
             setCards(data.data)
         })
         .catch(error => console.log('message: ', error.message))
-    }
-    
-    useEffect(() => {
-        getPokemonCards();
     }, [])
 
     return (
