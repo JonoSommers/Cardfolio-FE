@@ -1,9 +1,32 @@
+import { useState, useEffect } from 'react'
 import "./PokemonSearchView.css"
+import CardsContainer from '../CardsContainer/CardsContainer'
 
-function PokemonSearchView({p_card_image_path}) {
+const fetchPokemonCards = 'https://api.pokemontcg.io/v2/cards?page=1&pageSize=100'
+
+function PokemonSearchView() {
+    const [cards, setCards] = useState([])
+
+    function getPokemonCards() {
+        fetch(fetchPokemonCards, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            setCards(data.data)
+        })
+        .catch(error => console.log('message: ', error.message))
+    }
+    
+    useEffect(() => {
+        getPokemonCards();
+    }, [])
+
     return (
         <section>
-            <img src={ p_card_image_path } alt="Card Image" />
+            <CardsContainer cards={ cards } />
         </section>
     )
 }

@@ -8,8 +8,8 @@ function CardsContainer( { cards }) {
         if (card.supertype === 'Pokémon') {
             return (
                 < PokemonSearchView
-                    p_card_key = { index }
-                    p_card_image_path = { card.images.large}
+                    key = { index }
+                    p_card_image_path = { card.images.small }
                     p_card_name = { card.name }
                 />
             )
