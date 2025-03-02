@@ -21,9 +21,14 @@ function PokemonSearchView() {
     }, [])
 
     return (
+
+        <main>
+             <h1 className="pokemon-header">Pokémon</h1>
         <section>
-            <CardsContainer cards={ pokemonCards } />
+                <CardsContainer cards={ pokemonCards } />         
         </section>
+        
+        </main>
     )
 }
 
