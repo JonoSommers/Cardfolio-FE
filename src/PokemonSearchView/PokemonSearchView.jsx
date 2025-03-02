@@ -1,10 +1,10 @@
 import "./PokemonSearchView.css"
 
-function PokemonSearchView() {
+function PokemonSearchView({p_card_image_path}) {
     return (
-        <div>
-            <h1>Pokemon</h1>
-        </div>
+        <section>
+            <img src={ p_card_image_path } alt="Card Image" />
+        </section>
     )
 }
 

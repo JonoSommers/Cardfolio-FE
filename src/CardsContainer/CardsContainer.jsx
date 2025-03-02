@@ -1,27 +1,28 @@
 import "./CardsContainer.css"
-import PokemonSearchView from "../../PokemonSearchView"
-import MTGSearchView from "../MTGSearchView/MTGSearchView"
+import PokemonSearchView from "../PokemonSearchView/PokemonSearchView"
+// import MTGSearchView from "../MTGSearchView/MTGSearchView"
+
 
 function CardsContainer( { cards }) {
-    const sortedCards = cards.map(card => {
-        if (card.data.supertype === 'Pokémon') {
+    const sortedCards = cards.map((card, index) => {
+        if (card.supertype === 'Pokémon') {
             return (
                 < PokemonSearchView
-                    p_card_image_path = { card.data.images.large}
-                    p_card_name = { card.data.name }
-                    p_card_category = { card.card_category }
+                    p_card_key = { index }
+                    p_card_image_path = { card.images.large}
+                    p_card_name = { card.name }
                 />
             )
         }
-        else {
-            return (
-                < MTGSearchView
-                    m_card_image_path = { card.image_url}
-                    m_card_name = { card.name }
-                    m_card_category = { card.card_category }
-                />
-            )
-        }
+        // else if (!card.data.includes('supertype')) {
+        //     return (
+        //         < MTGSearchView
+        //             m_card_key = { index }
+        //             m_card_image_path = { card.image_url}
+        //             m_card_name = { card.name }
+        //         />
+        //     )
+        // }
     })
     return (
         <section className='CardsContainer'>
