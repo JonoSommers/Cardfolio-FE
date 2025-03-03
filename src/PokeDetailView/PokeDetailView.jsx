@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
-function PokemonDetailView() {
+function PokeDetailView() {
     const clickedCardId = useParams().cardId
     const [clickedCard, setClickedCard] = useState()
 
@@ -27,4 +27,4 @@ function PokemonDetailView() {
     }
 }
 
-export default PokemonDetailView
+export default PokeDetailView

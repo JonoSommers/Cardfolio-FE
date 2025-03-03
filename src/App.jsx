@@ -2,8 +2,8 @@ import { Routes, Route} from 'react-router-dom'
 import './App.css';
 import Login from './Login/Login.jsx'
 import HomePage from './HomePage/HomePage.jsx';
-import PokeSearchView from './PokeSearchView/PokeSearchView.jsx';
-import MagicSearchView from './MagicSearchView/MagicSearchView.jsx';
+import PokeCardsContainer from './PokeCardsContainer/PokeCardsContainer.jsx';
+import MagicCardsContainer from './MagicCardsContainer/MagicCardsContainer.jsx'
 import PokeDetailView from './PokeDetailView/PokeDetailView.jsx'
 import MagicDetailView from './MagicDetailView/MagicDetailView.jsx';
 
@@ -14,8 +14,8 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Login />} />
                     <Route path="/:username" element={<HomePage />} />
-                    <Route path="/pokemon_search" element={<PokeSearchView />} />
-                    <Route path="/mtg_search" element={<MagicSearchView />} />
+                    <Route path="/pokemon_search" element={<PokeCardsContainer />} />
+                    <Route path="/mtg_search" element={<MagicCardsContainer />} />
                     <Route path="/pokemon_search/:cardId" element={<PokeDetailView />} />
                     <Route path="/mtg_search/:cardId" element={<MagicDetailView />} />
                 </Routes>

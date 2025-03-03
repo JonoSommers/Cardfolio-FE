@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import PokeSearchView from './PokeSearchView/PokeSearchView.jsx'
+import PokeSearchView from '../PokeSearchView/PokeSearchView.jsx'
 
 const fetchPokemonCards = 'https://api.pokemontcg.io/v2/cards?page=1&pageSize=100'
 
