@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import "./MTGSearchView.css"
-import CardsContainer from '../CardsContainer/CardsContainer'
+import MTGCardsContainer from '../MTGCardsContainer/MTGCardsContainer'
 
 const fetchMTGCards = 'https://api.magicthegathering.io/v1/cards'
 
@@ -20,14 +20,23 @@ function MTGSearchView() {
         .catch(error => console.log('message: ', error.message))
     }, [])
 
+    const cards = magicCards.map(card => {
+        if (card.imageUrl) {
+            return (
+                < MTGCardsContainer
+                    key = { card.id }
+                    id = { card.id }
+                    m_card_path = { card.imageUrl }
+                    m_card_name = { card.name }
+                />
+            )
+        }
+    })
+
     return (
-        <main>
-            <h1 className="magic-header">Magic The Gathering</h1>
-        <section>
-            <CardsContainer cards={ magicCards } />         
+        <section className="MTGSearchView">
+            { cards }
         </section>
-        
-        </main>
     )
 }
 

@@ -1,23 +1,26 @@
-.CardsContainer {
+.MTGSearchView {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    max-width: calc(5 * 250px + 4 * 20px);
+    max-width: calc(5 * 250px + 4 * 20px); 
     margin: auto;
     padding: 20px;
-  }
-  .card {
+}
+
+.card {
     flex: 0 1 250px;
-  }
-  .card img {
+}
+
+.card img {
     width: 100%;
     height: auto;
     max-width: 250px;
     border-radius: 12px;
     object-fit: cover;
-  }
-  @media (max-width: 1300px) {
+}
+
+@media (max-width: 1300px) {
     .CardsContainer {
         max-width: calc(5 * 200px + 4 * 15px);
     }
@@ -27,20 +30,22 @@
     .card img {
         max-width: 200px;
     }
-  }
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .CardsContainer {
         max-width: calc(3 * 200px + 2 * 15px);
     }
     .card {
         flex: 0 1 200px;
     }
-  }
-  @media (max-width: 480px) {
+}
+
+@media (max-width: 480px) {
     .CardsContainer {
         max-width: calc(2 * 150px + 15px);
     }
     .card {
         flex: 0 1 150px;
     }
-  }
+}
