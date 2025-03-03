@@ -18,7 +18,7 @@ function LoginView() {
         .then((response) => response.json())
         .then((data) => {
           if (data.data && data.data.attributes) {
-            setMessage(data.data.attributes); 
+            setMessage(`The account with the username ${data.data.attributes.usernam} has been created`); 
           } else {
             setMessage("Error creating account.");
           }
@@ -56,14 +56,13 @@ function LoginView() {
           <button className="submit_button" type="submit" disabled={!username.trim()}>
             Create Account
           </button>
-          <Link to={"/home"}>
+          <Link to={`/${username}`}>
             <button className="login_button" type="submit" disabled={!username.trim()}>
                 Login
             </button>
           </Link>
         </form>
         {message && <p>{message}</p>}
-        
       </div>
     </main>
   );
