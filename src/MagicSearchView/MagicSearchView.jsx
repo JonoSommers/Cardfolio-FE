@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import "./MTGCardsContainer.css";
+import "./MagicSearchView.css";
 
-function MTGCardsContainer({ id, m_card_path, m_card_name }) {
+function MagicSearchView({ id, m_card_path, m_card_name }) {
     return (
         <section className='CardsContainer'> 
             <div className="card">
@@ -13,4 +13,4 @@ function MTGCardsContainer({ id, m_card_path, m_card_name }) {
     );
 }
 
-export default MTGCardsContainer
+export default MagicSearchView

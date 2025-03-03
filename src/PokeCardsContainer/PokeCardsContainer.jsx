@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
-import "./PokemonSearchView.css"
-import PokemonCardsContainer from '../PokemonCardsContainer/PokemonCardsContainer'
+import PokeSearchView from './PokeSearchView/PokeSearchView.jsx'
 
 const fetchPokemonCards = 'https://api.pokemontcg.io/v2/cards?page=1&pageSize=100'
 
-function PokemonSearchView() {
+function PokeCardsContainer() {
     const [pokemonCards, setPokemonCards] = useState([])
 
     useEffect(() => {
@@ -22,7 +21,7 @@ function PokemonSearchView() {
 
     const cards = pokemonCards.map(card => {
         return (
-            < PokemonCardsContainer
+            < PokeSearchView
                 key = { card.id }
                 id = { card.id }
                 p_card_path = { card.images.small }
@@ -38,4 +37,4 @@ function PokemonSearchView() {
     )
 }
 
-export default PokemonSearchView
+export default PokeCardsContainer

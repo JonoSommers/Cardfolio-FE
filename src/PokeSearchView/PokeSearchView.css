@@ -21,7 +21,7 @@
 }
 
 @media (max-width: 1300px) {
-    .CardsContainer {
+    .PokemonSearchView {
         max-width: calc(5 * 200px + 4 * 15px);
     }
     .card {
@@ -33,7 +33,7 @@
 }
 
 @media (max-width: 768px) {
-    .CardsContainer {
+    .PokemonSearchView {
         max-width: calc(3 * 200px + 2 * 15px);
     }
     .card {
@@ -42,7 +42,7 @@
 }
 
 @media (max-width: 480px) {
-    .CardsContainer {
+    .PokemonSearchView {
         max-width: calc(2 * 150px + 15px);
     }
     .card {

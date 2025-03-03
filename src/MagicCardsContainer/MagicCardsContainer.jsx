@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
-import "./MTGSearchView.css"
-import MTGCardsContainer from '../MTGCardsContainer/MTGCardsContainer'
+import MagicSearchView from '../MagicSearchView/MagicSearchView'
 
 const fetchMTGCards = 'https://api.magicthegathering.io/v1/cards'
 
-function MTGSearchView() {
+function MagicCardsContainer() {
     const [magicCards, setMagicCards] = useState([])
 
     useEffect(() => {
@@ -23,7 +22,7 @@ function MTGSearchView() {
     const cards = magicCards.map(card => {
         if (card.imageUrl) {
             return (
-                < MTGCardsContainer
+                < MagicSearchView
                     key = { card.id }
                     id = { card.id }
                     m_card_path = { card.imageUrl }
@@ -40,4 +39,4 @@ function MTGSearchView() {
     )
 }
 
-export default MTGSearchView
+export default MagicCardsContainer

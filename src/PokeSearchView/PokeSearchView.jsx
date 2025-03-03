@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import "./PokemonCardsContainer.css";
+import "./PokeSearchView.css";
 
-function PokemonCardsContainer({ id, p_card_path, p_card_name }) {
+function PokeSearchView({ id, p_card_path, p_card_name }) {
     return (
         <section className='CardsContainer'>
             <div className="card">
@@ -13,4 +13,4 @@ function PokemonCardsContainer({ id, p_card_path, p_card_name }) {
     );
 }
 
-export default PokemonCardsContainer;
+export default PokeSearchView;
