@@ -21,9 +21,13 @@ function MTGSearchView() {
     }, [])
 
     return (
+        <main>
+            <h1 className="magic-header">Magic The Gathering</h1>
         <section>
-            <CardsContainer cards={ magicCards } />
+            <CardsContainer cards={ magicCards } />         
         </section>
+        
+        </main>
     )
 }
 
