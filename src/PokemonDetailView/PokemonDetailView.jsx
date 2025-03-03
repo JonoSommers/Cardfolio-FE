@@ -9,7 +9,6 @@ function PokemonDetailView() {
         fetch(`https://api.pokemontcg.io/v2/cards/${clickedCardId}`)
         .then(response => response.json())
         .then(data => {
-            console.log('data: ', data)
             setClickedCard(data)
         })
         .catch(error => console.log('message: ', error.message))
