@@ -35,6 +35,12 @@ function MagicDetailView() {
         return (
             <section>
                 <img src= { clickedCard.imageUrl } alt= { clickedCard.name } />
+                <label>Users Binders:
+                  <select name="selected binder">
+                    <option value="binder 1">Defualt Binder</option>
+                    <option value="binder 2">Users Second Binder</option>
+                  </select>
+                </label>
                 <button onClick={() => addToBinder()}>Add To Binder</button>
                 <Link to={"/mtg_search"}><button>Back</button></Link>
             </section>
