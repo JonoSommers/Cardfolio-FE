@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 function PokeDetailView() {
@@ -18,10 +18,18 @@ function PokeDetailView() {
         getCardDetails()
     })
 
+    function addToBinder() {
+      fetch('http://localhost:3000/api/v1/users/1/binders/1/binder_cards')
+      .then(response => response.json())
+      .then(data => console.log(data))
+    }
+
     if(clickedCard) {
         return (
             <section>
                 <img src= { clickedCard.data.images.small } alt= { clickedCard.data.name } />
+                <button onClick={() => addToBinder()}>Add To Binder</button>
+                <Link to={"/pokemon_search"}><button>Back</button></Link>
             </section>
         )
     }
