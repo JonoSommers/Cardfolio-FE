@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import "./HomePage.css"
+import FavoritesContainer from '../FavoritesContainer/FavoritesContainer'
 
 function HomePage() {
   const displayName = useParams().username
@@ -13,6 +14,7 @@ function HomePage() {
       <Link to={'/mtg_search'}>
         <button>MTG</button>
       </Link>
+      <FavoritesContainer/>
     </div>
   )   
 }
