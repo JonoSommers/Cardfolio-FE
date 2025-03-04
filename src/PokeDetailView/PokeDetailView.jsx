@@ -19,7 +19,14 @@ function PokeDetailView() {
     })
 
     function addToBinder() {
-      fetch('http://localhost:3000/api/v1/users/1/binders/1/binder_cards')
+      fetch('http://localhost:3000/api/v1/users/1/binders/1/binder_cards', {
+        method: "POST", 
+        headers: {
+          "Content-Type": "application/json"
+        }, 
+        body: JSON.stringify({name: clickedCard.data.name, image_url: clickedCard.data.images.small, category: 0})
+      })
+
       .then(response => response.json())
       .then(data => console.log(data))
     }
