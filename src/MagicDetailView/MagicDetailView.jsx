@@ -10,16 +10,17 @@ function MagicDetailView() {
         .then(response => response.json())
         .then(data => {
             setClickedCard(data.card)
+            console.log("data" , data.card)
         })
         .catch(error => console.log('message: ', error.message))
     }
 
     useEffect(() => {
         getCardDetails()
-    })
+    },[])
 
     function addToBinder() {
-      fetch('http://localhost:3000/api/v1/users/1/binders/1/binder_cards', {
+      fetch('http://localhost:3000/api/v1/users/1/binders/1/binder_cards', { //this will need to be updated to interpolate the binder and user id
         method: "POST", 
         headers: {
           "Content-Type": "application/json"
