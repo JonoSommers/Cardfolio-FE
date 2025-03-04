@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
-import "./HomePageView.css"
+import "./HomePage.css"
 
-function HomePageView() {
+function HomePage() {
   const displayName = useParams().username
 
   return( 
@@ -17,4 +17,4 @@ function HomePageView() {
   )   
 }
 
-export default HomePageView;
+export default HomePage;

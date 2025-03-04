@@ -1,8 +1,8 @@
-import "./LoginView.css";
+import "./Login.css";
 import { Link } from "react-router-dom"
 import { useState } from "react";
 
-function LoginView() {
+function Login() {
   const [username, setUsername] = useState("");
   const [message, setMessage] = useState("");
 
@@ -68,4 +68,4 @@ function LoginView() {
   );
 }
 
-export default LoginView;
+export default Login;
