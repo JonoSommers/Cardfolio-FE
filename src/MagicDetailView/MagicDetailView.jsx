@@ -10,7 +10,8 @@ function MagicDetailView() {
         .then(response => response.json())
         .then(data => {
             setClickedCard(data.card)
-            console.log("data" , data.card)
+            console.log("data" , data.card.name)
+            console.log("image", data.card.imageUrl)
         })
         .catch(error => console.log('message: ', error.message))
     }
@@ -36,6 +37,12 @@ function MagicDetailView() {
         return (
             <section>
                 <img src= { clickedCard.imageUrl } alt= { clickedCard.name } />
+                <label>Users Binders:
+                    <select name="selected">
+                        <option value="binder 1">Default Binder</option>
+                        <option value="binder 2">Users Second Binder</option>
+                    </select>
+                </label>
                 <button onClick={() => addToBinder()}>Add To Binder</button>
                 <Link to={"/mtg_search"}><button>Back</button></Link>
             </section>
