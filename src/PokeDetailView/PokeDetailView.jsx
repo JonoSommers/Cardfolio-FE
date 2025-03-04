@@ -35,6 +35,12 @@ function PokeDetailView() {
         return (
             <section>
                 <img src= { clickedCard.data.images.small } alt= { clickedCard.data.name } />
+                <label>Users Binders:
+                  <select name="selected binder">
+                    <option value="binder 1">Defualt Binder</option>
+                    <option value="binder 2">Users Second Binder</option>
+                  </select>
+                </label>
                 <button onClick={() => addToBinder()}>Add To Binder</button>
                 <Link to={"/pokemon_search"}><button>Back</button></Link>
             </section>
