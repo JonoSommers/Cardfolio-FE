@@ -7,7 +7,16 @@ function MagicDetailView({userData}) {
     const [selectedBinderName, setSelectedBinderName] = useState("")
     const [selectedBinderID, setSelectedBinderID] = useState("")
 
-    console.log(userData)
+    console.log("data", userData)
+
+    const allbinders =
+        userData.attributes.binders.map(binder => {
+            <option key={binder.id} value={binder.name}>
+                {binder.name}
+                console.log(binder.name)
+            </option>
+    });
+
     function getCardDetails() {
         fetch(`https://api.magicthegathering.io/v1/cards/${clickedCardId}`)
         .then(response => response.json())
@@ -15,7 +24,7 @@ function MagicDetailView({userData}) {
             setClickedCard(data.card)
         })
         .catch(error => console.log('message: ', error.message))
-    }
+    };
 
     useEffect(() => {
         getCardDetails()
@@ -28,13 +37,13 @@ function MagicDetailView({userData}) {
       } else {
         setSelectedBinderID("")
       }
-    }
+    };
 
     function handleBinderChange(event) {
       const binderName = event.target.value
       setSelectedBinderName(binderName)
       findBinderIDByName(binderName)
-    }
+    };
 
     function addToBinder() {
       fetch(`http://localhost:3000/api/v1/users/${userData.data.id}/binders/${selectedBinderID}/binder_cards`, { 
@@ -48,16 +57,8 @@ function MagicDetailView({userData}) {
       .then(response => response.json())
       .then(data => console.log(data))
       .catch(error => console.error("Error adding card to binder:", error))
-    }
+    };
     
-    function findBinder(bindername) {
-
-        userData.data.attributes.binders.forEach(binder => {
-          if(binder.name === bindername) {
-            setSelectedBinderID(binder.id)
-          }
-        })
-    }
 
     if(clickedCard) {
         return (
@@ -69,12 +70,8 @@ function MagicDetailView({userData}) {
                     onChange={handleBinderChange}
                     value={selectedBinderName}
                   >
-                    <option value="">-- Select a Binder --</option>
-                    {userData.data.attributes.binders.map((binder) => (
-                      <option key={binder.id} value={binder.name}>
-                        {binder.name}
-                      </option>
-                    ))}
+                    {allbinders}
+                    {console.log("binders" ,allbinders)}
                   </select>
                 </label>
                 <button onClick={() => addToBinder()}>Add To Binder</button>
