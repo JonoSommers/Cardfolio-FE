@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css"
 
-function Login() {
+function Login({setUserData}) {
   const [username, setUsername] = useState("")
   const [message, setMessage] = useState("")
   const [users, setUsers] = useState([])
@@ -23,7 +23,7 @@ function Login() {
 
   function fetchUser() {
     const foundUser = users.find((user) => user.attributes.username === username)
-
+    setUserData(foundUser)
     if (foundUser) {
       navigate(`/${foundUser.attributes.username}`)
     } else {

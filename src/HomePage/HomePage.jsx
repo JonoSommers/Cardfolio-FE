@@ -1,9 +1,9 @@
 import { useParams, Link } from 'react-router-dom'
 import "./HomePage.css"
 
-function HomePage() {
+function HomePage({userData}) {
   const displayName = useParams().username
-
+  console.log(userData)
   return( 
     <div>
       <h1>{displayName}</h1>
