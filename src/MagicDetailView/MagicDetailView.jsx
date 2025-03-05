@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 function MagicDetailView({userData}) {
     const clickedCardId = useParams().cardId
     const [clickedCard, setClickedCard] = useState()
+    const [selectedBinderName, setSelectedBinderName] = useState("")
+    const [selectedBinderID, setSelectedBinderID] = useState("")
 
     console.log(userData)
     function getCardDetails() {
@@ -19,8 +21,23 @@ function MagicDetailView({userData}) {
         getCardDetails()
     },[])
 
+    function findBinderIDByName(binderName) {
+      const foundBinder = userData.data.attributes.binders.find(binder => binder.name === binderName)
+      if (foundBinder) {
+        setSelectedBinderID(foundBinder.id)
+      } else {
+        setSelectedBinderID("")
+      }
+    }
+
+    function handleBinderChange(event) {
+      const binderName = event.target.value
+      setSelectedBinderName(binderName)
+      findBinderIDByName(binderName)
+    }
+
     function addToBinder() {
-      fetch(`http://localhost:3000/api/v1/users/${userData.id}/binders/1/binder_cards`, { 
+      fetch(`http://localhost:3000/api/v1/users/${userData.data.id}/binders/${selectedBinderID}/binder_cards`, { 
         method: "POST", 
         headers: {
           "Content-Type": "application/json"
@@ -30,17 +47,34 @@ function MagicDetailView({userData}) {
 
       .then(response => response.json())
       .then(data => console.log(data))
+      .catch(error => console.error("Error adding card to binder:", error))
     }
+    
+    function findBinder(bindername) {
 
+        userData.data.attributes.binders.forEach(binder => {
+          if(binder.name === bindername) {
+            setSelectedBinderID(binder.id)
+          }
+        })
+    }
 
     if(clickedCard) {
         return (
             <section>
                 <img src= { clickedCard.imageUrl } alt= { clickedCard.name } />
                 <label>Users Binders:
-                  <select name="selected binder">
-                    <option value="binder 1">Defualt Binder</option>
-                    <option value="binder 2">Users Second Binder</option>
+                  <select 
+                    name="selected binder"
+                    onChange={handleBinderChange}
+                    value={selectedBinderName}
+                  >
+                    <option value="">-- Select a Binder --</option>
+                    {userData.data.attributes.binders.map((binder) => (
+                      <option key={binder.id} value={binder.name}>
+                        {binder.name}
+                      </option>
+                    ))}
                   </select>
                 </label>
                 <button onClick={() => addToBinder()}>Add To Binder</button>
