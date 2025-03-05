@@ -47,18 +47,6 @@ function MagicDetailView({userData}) {
       .then(data => console.log(data))
     }
 
-    function addToBinder() {
-      fetch('http://localhost:3000/api/v1/users/1/binders/1/binder_cards', {
-        method: "POST", 
-        headers: {
-          "Content-Type": "application/json"
-        }, 
-        body: JSON.stringify({name: clickedCard.name, image_url: clickedCard.imageUrl, category: 1})
-      })
-
-      .then(response => response.json())
-      .then(data => console.log(data))
-    }
 
     if(clickedCard) {
         return (
