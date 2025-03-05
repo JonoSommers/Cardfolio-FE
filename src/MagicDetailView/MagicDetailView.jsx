@@ -23,7 +23,7 @@ function MagicDetailView({userData}) {
 
 
     useEffect(() => {
-        userData.find(card => { card.attributes.id === cardId})
+        userData.find(card => { card.id === clickedCardId.name})
     }, [])
 
     function addtoFavorites() {
