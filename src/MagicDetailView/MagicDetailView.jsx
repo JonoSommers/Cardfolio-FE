@@ -5,15 +5,15 @@ function MagicDetailView({userData}) {
     const clickedCardId = useParams().cardId
     const [clickedCard, setClickedCard] = useState()
     const [selectedBinderName, setSelectedBinderName] = useState("")
-    const [selectedBinderID, setSelectedBinderID] = useState("")
+    const [selectedBinderId, setSelectedBinderId] = useState(0)
 
     console.log("data", userData?.attributes?.binders)
 
     const allBinders = userData.attributes.binders.map(binder => {
         return (
-            <option key={binder.id} value={binder.name}>
+            <option key={binder.id} value={binder.id}>
                 {binder.name}
-                {console.log(binder.name)}
+                {console.log("binder id:", binder.id)}
             </option>
 
     )          
@@ -32,25 +32,15 @@ function MagicDetailView({userData}) {
         getCardDetails()
     },[])
 
-    function findBinderIDByName(binderName) {
-      const foundBinder = userData.attributes.binders.find(binder => binder.name.downcase === binderName.downcase)
-      if (foundBinder) {
-        setSelectedBinderID(foundBinder.id)
-      } else {
-        setSelectedBinderID("")
-      }
-    };
 
 
 
-    function handleBinderChange(event) {
-      const binderName = event.target.value
-      setSelectedBinderName(binderName)
-      findBinderIDByName(binderName)
-    };
+    // function handleBinderChange(event) {
+    //   setSelectedBinderID(event.target.value)
+    // };
 
     function addToBinder() {
-      fetch(`http://localhost:3000/api/v1/users/${userData.id}/binders/${selectedBinderID}/binder_cards`, { 
+      fetch(`http://localhost:3000/api/v1/users/${userData.id}/binders/${selectedBinderId}/binder_cards`, { 
         method: "POST", 
         headers: {
           "Content-Type": "application/json"
@@ -71,8 +61,8 @@ function MagicDetailView({userData}) {
                 <label>Users Binders:
                   <select 
                     name="selected binder"
-                    onChange={handleBinderChange}
-                    value={selectedBinderName}
+                    onChange={(event) => setSelectedBinderId(event.target.value)}
+                    value={selectedBinderId}
                   >
                     {allBinders}
                     {console.log("binders" ,allBinders)}
