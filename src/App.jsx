@@ -25,7 +25,7 @@ function App() {
                     <Route path="/pokemon_search" element={<PokeCardsContainer />} />
                     <Route path="/mtg_search" element={<MagicCardsContainer />} />
                     <Route path="/pokemon_search/:cardId" element={<PokeDetailView />} />
-                    <Route path="/mtg_search/:cardId" element={<MagicDetailView />} />
+                    <Route path="/mtg_search/:cardId" element={<MagicDetailView userData={userData}/>} />
                 </Routes>
             </section>
         </div>
