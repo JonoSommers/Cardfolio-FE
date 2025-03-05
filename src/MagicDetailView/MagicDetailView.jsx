@@ -20,20 +20,6 @@ function MagicDetailView({userData}) {
         getCardDetails()
     },[])
 
-
-
-    useEffect(() => {
-        const foundCard = userData.find(card => { card.name === clickedCardId.name})
-    }, [clickedCard])
-
-    function addtoFavorites() {
-        fetch(`http://localhost:3000/api/v1/users/1/binders/1/binder_cards/${cardId}`,{
-            method: "PATCH"
-        })
-        .then(response => response.json())
-        .then(data => console.log(data))
-    }
-
     function addToBinder() {
       fetch('http://localhost:3000/api/v1/users/1/binders/1/binder_cards', { //this will need to be updated to interpolate the binder and user id
         method: "POST", 
