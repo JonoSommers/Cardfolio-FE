@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 function MagicDetailView({userData}) {
     const clickedCardId = useParams().cardId
     const [clickedCard, setClickedCard] = useState()
-    const [userCard, setUserCard] = useState([])
 
     console.log(userData)
     function getCardDetails() {
@@ -21,7 +20,7 @@ function MagicDetailView({userData}) {
     },[])
 
     function addToBinder() {
-      fetch('http://localhost:3000/api/v1/users/1/binders/1/binder_cards', { //this will need to be updated to interpolate the binder and user id
+      fetch(`http://localhost:3000/api/v1/users/${userData.id}/binders/1/binder_cards`, { 
         method: "POST", 
         headers: {
           "Content-Type": "application/json"
@@ -45,7 +44,6 @@ function MagicDetailView({userData}) {
                   </select>
                 </label>
                 <button onClick={() => addToBinder()}>Add To Binder</button>
-                <button onClick={() => addtoFavorites()}>Add to Favorites</button>
                 <Link to={"/mtg_search"}><button>Back</button></Link>
             </section>
         )
