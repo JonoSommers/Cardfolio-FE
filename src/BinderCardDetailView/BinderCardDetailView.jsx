@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-
+import './BinderCardDetailView.css'
 
 function BinderCardDetailView({ userData }) {
 	console.log(userData)
@@ -15,15 +15,15 @@ function BinderCardDetailView({ userData }) {
 		})
 		.then(response => response.json())
 		.then(data => {console.log(data)})
-		.catch(error => console.log(error))
+		.catch(error => console.log('message: ', error))
 	}
 	
 	return (
-		<section>
+		<section className="view">
 			<header>
 				<h1>{cardName}</h1>
 			</header>
-			<img src={`${cardImage.data.attributes.card.image_url}`} alt={`${cardImage.data.attributes.card.name}`} />
+			<img  src={`${cardImage.data.attributes.card.image_url}`} alt={`${cardImage.data.attributes.card.name}`} />
 			<Link to={`/binder/${binderName}`}>
 				<button>Back</button>
 			</Link>
