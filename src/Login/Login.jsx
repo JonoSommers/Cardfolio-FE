@@ -1,11 +1,36 @@
-import "./Login.css";
-import { Link } from "react-router-dom"
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Login.css"
 
-function Login() {
-  const [username, setUsername] = useState("");
-  const [message, setMessage] = useState("");
+function Login({setUserData}) {
+  const [username, setUsername] = useState("")
+  const [message, setMessage] = useState("")
+  const [users, setUsers] = useState([])
+  const navigate = useNavigate()
 
+  
+  useEffect(() => {
+    fetch("http://localhost:3000/api/v1/users")
+      .then((response) => response.json())
+      .then((data) => {
+        setUsers(data.data)
+      })
+      .catch((error) => {
+        console.error("Error fetching users:", error)
+        setMessage("Error loading users.")
+      })
+  }, [])
+
+  function fetchUser() {
+    const foundUser = users.find((user) => user.attributes.username === username)
+    setUserData(foundUser)
+    if (foundUser) {
+      navigate(`/${foundUser.attributes.username}`)
+    } else {
+      setMessage("User not found")
+    }
+  }
+  
   function createUser() {
     if (username.trim()) {
         fetch("http://localhost:3000/api/v1/users", {
@@ -31,9 +56,13 @@ function Login() {
   }
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    createUser(); 
-  };
+    event.preventDefault()
+    if (event.nativeEvent.submitter.name === "login") {
+      fetchUser()
+    } else if (event.nativeEvent.submitter.name === "create") {
+      createUser()
+    }
+  }
 
   return (
     <main className="Snorlax">
@@ -53,19 +82,18 @@ function Login() {
               onChange={(event) => setUsername(event.target.value)}
             />
           </label>
-          <button className="submit_button" type="submit" disabled={!username.trim()}>
+          <button className="submit_button" type="submit" name="create" disabled={!username.trim()}>
             Create Account
           </button>
-          <Link to={`/${username}`}>
-            <button className="login_button" type="submit" disabled={!username.trim()}>
+            <button className="login_button" type="submit" name="login" disabled={!username.trim()}>
                 Login
             </button>
-          </Link>
         </form>
         {message && <p>{message}</p>}
       </div>
     </main>
   );
 }
+
 
 export default Login;
