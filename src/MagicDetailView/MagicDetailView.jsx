@@ -23,8 +23,8 @@ function MagicDetailView({userData}) {
 
 
     useEffect(() => {
-        userData.find(card => { card.id === clickedCardId.name})
-    }, [])
+        const foundCard = userData.find(card => { card.name === clickedCardId.name})
+    }, [clickedCard])
 
     function addtoFavorites() {
         fetch(`http://localhost:3000/api/v1/users/1/binders/1/binder_cards/${cardId}`,{
