@@ -9,13 +9,12 @@ function MagicDetailView({userData}) {
 
     console.log("data", userData)
 
-    const allbinders =
-        userData.attributes.binders.map(binder => {
+    const allBinders = userData.attributes.binders.map(binder => (
             <option key={binder.id} value={binder.name}>
                 {binder.name}
                 {console.log(binder.name)}
             </option>
-    });
+    ));
 
     function getCardDetails() {
         fetch(`https://api.magicthegathering.io/v1/cards/${clickedCardId}`)
@@ -70,6 +69,7 @@ function MagicDetailView({userData}) {
                     onChange={handleBinderChange}
                     value={selectedBinderName}
                   >
+                    {allBinders}
                     {console.log("binders" ,allbinders)}
                   </select>
                 </label>
