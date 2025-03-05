@@ -20,6 +20,16 @@
 	object-fit: cover;
 }
 
+.homeIcon {
+	display: flex;
+	cursor: pointer;
+	width: 70px;
+	justify-content: space-between;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+
 @media (max-width: 1300px) {
 	.BinderView {
 			max-width: calc(5 * 200px + 4 * 15px);
