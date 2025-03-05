@@ -17,7 +17,7 @@ function BinderView({ userData }) {
     return (
       <section className="card">
 				<Link to={`/binder/${card.data.attributes.binder.name}/${card.data.attributes.card.name}`}>
-        	<img src={`${card.data.attributes.card.image_url}`} alt={`${card.data.attributes.card.name}`} />
+      		<img src={`${card.data.attributes.card.image_url}`} alt={`${card.data.attributes.card.name}`} />
 				</Link>
       </section>
     )
