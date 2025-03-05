@@ -10,26 +10,16 @@ function MagicDetailView() {
         .then(response => response.json())
         .then(data => {
             setClickedCard(data.card)
-            console.log("data" , data.card.name)
-            console.log("image", data.card.imageUrl)
         })
         .catch(error => console.log('message: ', error.message))
     }
 
     useEffect(() => {
         getCardDetails()
-    },[])
-
-    function addtoFavorites() {
-        fetch(`http://localhost:3000/api/v1/users/1/binders/1/binder_cards/${clickedCardId}`,{
-            method: "PATCH"
-        })
-        .then(response => response.json())
-        .then(data => console.log(data))
-    }
+    })
 
     function addToBinder() {
-      fetch('http://localhost:3000/api/v1/users/1/binders/1/binder_cards', { //this will need to be updated to interpolate the binder and user id
+      fetch('http://localhost:3000/api/v1/users/1/binders/1/binder_cards', {
         method: "POST", 
         headers: {
           "Content-Type": "application/json"
@@ -46,13 +36,12 @@ function MagicDetailView() {
             <section>
                 <img src= { clickedCard.imageUrl } alt= { clickedCard.name } />
                 <label>Users Binders:
-                    <select name="selected">
-                        <option value="binder 1">Default Binder</option>
-                        <option value="binder 2">Users Second Binder</option>
-                    </select>
+                  <select name="selected binder">
+                    <option value="binder 1">Defualt Binder</option>
+                    <option value="binder 2">Users Second Binder</option>
+                  </select>
                 </label>
                 <button onClick={() => addToBinder()}>Add To Binder</button>
-                <button onClick={() => addtoFavorites()}>Add To Favorites</button>
                 <Link to={"/mtg_search"}><button>Back</button></Link>
             </section>
         )
