@@ -27,7 +27,7 @@ function MagicDetailView({userData}) {
     }, [])
 
     function addtoFavorites() {
-        fetch(`http://localhost:3000/api/v1/users/1/binders/1/binder_cards/${a}`,{
+        fetch(`http://localhost:3000/api/v1/users/1/binders/1/binder_cards/${cardId}`,{
             method: "PATCH"
         })
         .then(response => response.json())
