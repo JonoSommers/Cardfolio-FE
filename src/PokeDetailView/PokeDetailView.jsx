@@ -16,7 +16,7 @@ function PokeDetailView() {
 
     useEffect(() => {
         getCardDetails()
-    })
+    }, [])
 
     if(clickedCard) {
         return (

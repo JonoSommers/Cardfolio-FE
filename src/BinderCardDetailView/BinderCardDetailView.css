@@ -5,9 +5,18 @@
     justify-content: center;
     text-align: center;
     height: 100vh;
+    margin-top: -45px;
 }
 
-img {
+.view img {
     position: relative;
     top: -20px
+}
+
+.view button {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    pointer-events: auto;
+    z-index:10
 }

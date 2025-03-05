@@ -10,9 +10,6 @@ import MagicDetailView from './MagicDetailView/MagicDetailView.jsx';
 import BinderView from './BinderView/BinderView.jsx';
 import BinderCardDetailView from './BinderCardDetailView/BinderCardDetailView.jsx'
 
-
-
-
 function App() {
     const [userData, setUserData] = useState([])
 
