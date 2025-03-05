@@ -20,6 +20,14 @@ function MagicDetailView() {
         getCardDetails()
     },[])
 
+    function addtoFavorites() {
+        fetch(`http://localhost:3000/api/v1/users/1/binders/1/binder_cards/${clickedCardId}`,{
+            method: "PATCH"
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+    }
+
     function addToBinder() {
       fetch('http://localhost:3000/api/v1/users/1/binders/1/binder_cards', { //this will need to be updated to interpolate the binder and user id
         method: "POST", 
@@ -44,6 +52,7 @@ function MagicDetailView() {
                     </select>
                 </label>
                 <button onClick={() => addToBinder()}>Add To Binder</button>
+                <button onClick={() => addtoFavorites()}>Add To Favorites</button>
                 <Link to={"/mtg_search"}><button>Back</button></Link>
             </section>
         )
