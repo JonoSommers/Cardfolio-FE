@@ -13,7 +13,7 @@ function MagicDetailView({userData}) {
         userData.attributes.binders.map(binder => {
             <option key={binder.id} value={binder.name}>
                 {binder.name}
-                console.log(binder.name)
+                {console.log(binder.name)}
             </option>
     });
 
@@ -31,7 +31,7 @@ function MagicDetailView({userData}) {
     },[])
 
     function findBinderIDByName(binderName) {
-      const foundBinder = userData.data.attributes.binders.find(binder => binder.name === binderName)
+      const foundBinder = userData.attributes.binders.find(binder => binder.name === binderName)
       if (foundBinder) {
         setSelectedBinderID(foundBinder.id)
       } else {
@@ -70,7 +70,6 @@ function MagicDetailView({userData}) {
                     onChange={handleBinderChange}
                     value={selectedBinderName}
                   >
-                    {allbinders}
                     {console.log("binders" ,allbinders)}
                   </select>
                 </label>
