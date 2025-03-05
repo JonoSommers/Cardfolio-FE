@@ -1,8 +1,8 @@
 import "./FavoritesContainer.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function FavoritesContainer() {
-    const [favorites, setfavorites] = useState[null]
+
 
 
     return (
