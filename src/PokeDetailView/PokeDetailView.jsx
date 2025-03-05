@@ -21,6 +21,9 @@ function PokeDetailView() {
     if(clickedCard) {
         return (
             <section>
+							<header>
+								<h1>{clickedCard.data.name}</h1>
+							</header>
                 <img src= { clickedCard.data.images.small } alt= { clickedCard.data.name } />
             </section>
         )
