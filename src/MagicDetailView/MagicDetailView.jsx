@@ -7,14 +7,17 @@ function MagicDetailView({userData}) {
     const [selectedBinderName, setSelectedBinderName] = useState("")
     const [selectedBinderID, setSelectedBinderID] = useState("")
 
-    console.log("data", userData)
+    console.log("data", userData?.attributes?.binders)
 
-    const allBinders = userData.attributes.binders.map(binder => (
+    const allBinders = userData.attributes.binders.map(binder => {
+        return (
             <option key={binder.id} value={binder.name}>
                 {binder.name}
                 {console.log(binder.name)}
             </option>
-    ));
+
+    )          
+});
 
     function getCardDetails() {
         fetch(`https://api.magicthegathering.io/v1/cards/${clickedCardId}`)
@@ -30,13 +33,15 @@ function MagicDetailView({userData}) {
     },[])
 
     function findBinderIDByName(binderName) {
-      const foundBinder = userData.attributes.binders.find(binder => binder.name === binderName)
+      const foundBinder = userData.attributes.binders.find(binder => binder.name.downcase === binderName.downcase)
       if (foundBinder) {
         setSelectedBinderID(foundBinder.id)
       } else {
         setSelectedBinderID("")
       }
     };
+
+
 
     function handleBinderChange(event) {
       const binderName = event.target.value
@@ -45,7 +50,7 @@ function MagicDetailView({userData}) {
     };
 
     function addToBinder() {
-      fetch(`http://localhost:3000/api/v1/users/${userData.data.id}/binders/${selectedBinderID}/binder_cards`, { 
+      fetch(`http://localhost:3000/api/v1/users/${userData.id}/binders/${selectedBinderID}/binder_cards`, { 
         method: "POST", 
         headers: {
           "Content-Type": "application/json"
@@ -70,7 +75,7 @@ function MagicDetailView({userData}) {
                     value={selectedBinderName}
                   >
                     {allBinders}
-                    {console.log("binders" ,allbinders)}
+                    {console.log("binders" ,allBinders)}
                   </select>
                 </label>
                 <button onClick={() => addToBinder()}>Add To Binder</button>
