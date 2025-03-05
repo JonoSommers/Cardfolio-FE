@@ -12,9 +12,7 @@ import MagicDetailView from './MagicDetailView/MagicDetailView.jsx';
 
 
 function App() {
-
     const [userData, setUserData] = useState([])
-
 
     return (
         <div className="App">
