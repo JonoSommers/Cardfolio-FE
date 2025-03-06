@@ -43,7 +43,7 @@ function HomePage({ userData }) {
           <section className="favorites-container">
             <h2>Favorite Cards</h2>
             <div className="favorite-cards">
-              {allCards.map((card) => (
+              {favoriteCards.map((card) => (
                 <div key={card.id} className="card-display">
                   <img src={card.data.attributes.card.image_url} alt={card.data.attributes.card.name} />
                 </div>
