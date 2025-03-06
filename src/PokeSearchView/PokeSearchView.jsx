@@ -39,7 +39,6 @@ function PokeSearchView({ id, p_card_path, p_card_name }) {
         });
     };
 
-   
     const handleMouseOut = () => {
         setCardStyle({});
     };
