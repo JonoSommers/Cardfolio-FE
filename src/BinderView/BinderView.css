@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .BinderView {
 	display: flex;
 	flex-wrap: wrap;
@@ -44,7 +48,7 @@
 	display: flex;
 	justify-content: space-between;
 	position: absolute;
-	width: 10%;
+	width: 20%;
 	height: 2.5%;
 	top: 20px;
 	right: 20px;
