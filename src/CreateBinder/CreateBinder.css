@@ -27,11 +27,10 @@ body, html {
 .submit {
     font-size: 20px; 
     font-weight: bold;
-    padding: 18px 30px;
+    padding: 30px 30px;
     border: 4px solid black; 
-    border-radius: 15px;
+    border-radius: 5px;
     background-color: #888888;
-    color: black;
     cursor: pointer;
     width: 35%;
     transition: all 0.3s ease;
@@ -62,6 +61,7 @@ body, html {
     padding: 30px;
 }
 
-.submit:hover {
-    background-color: #B986D7;
+input {
+    font-size: 20px;
+    background-color: ;
 }
