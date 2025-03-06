@@ -61,7 +61,6 @@ function PokeDetailView({userData}) {
                     value={selectedBinderId}
                   >
                     {allBinders}
-                    {console.log("binders" ,allBinders)}
                   </select>
                 </label>
                 <button onClick={() => addToBinder()}>Add To Binder</button>
