@@ -60,6 +60,9 @@ function MagicDetailView({userData}) {
     if(clickedCard) {
         return (
             <section>
+		<header>
+			<h1>{clickedCard.name}</h1>
+		</header>
                 <img src= { clickedCard.imageUrl } alt= { clickedCard.name } />
                 <label>Users Binders:
                   <select 

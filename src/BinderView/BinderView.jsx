@@ -16,7 +16,9 @@ function BinderView({ userData }) {
 	const searchCards = filteredCards.map((card) => {
     return (
       <section className="card">
-        <img src={`${card.data.attributes.card.image_url}`} alt={`${card.data.attributes.card.name}`} />
+				<Link to={`/binder/${card.data.attributes.binder.name}/${card.data.attributes.card.name}`}>
+      		<img src={`${card.data.attributes.card.image_url}`} alt={`${card.data.attributes.card.name}`} />
+				</Link>
       </section>
     )
 	})
