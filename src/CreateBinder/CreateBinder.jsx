@@ -7,28 +7,18 @@ function CreateBinder({ userData }) {
   const [userID, setUserID] = useState("");
   const navigate = useNavigate();
 
-  console.log(userData);
-
-  useEffect(() => {
-    if (userData?.id > 0) {
-      setUserID(String(userData.id));
-    }
-  }, [userData]); 
-
   function sendBinder() {
     if (!binderName) {
       console.error("Please enter a binder name");
-      return;
     }
 
-    fetch(`http://localhost:3000/api/v1/users/${userID}/binders`, {
+    fetch(`http://localhost:3000/api/v1/users/${userData.id}/binders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        binder_name: binderName,
-        user_id: userID,
+        binder_name: binderName
       }),
     })
       .then((response) =>
