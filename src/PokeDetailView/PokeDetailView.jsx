@@ -42,7 +42,7 @@ function PokeDetailView({userData}) {
           }, 
           body: JSON.stringify({
             name: clickedCard.data.name, 
-            image_url: clickedCard.data.imageUrl, 
+            image_url: clickedCard.data.images.small, 
             category: 0})
         })
         .then(response => response.json())
