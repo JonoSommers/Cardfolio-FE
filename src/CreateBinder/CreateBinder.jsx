@@ -4,10 +4,11 @@ import "./CreateBinder.css";
 
 function CreateBinder({ userData, setUserData }) {
   const [binderName, setBinderName] = useState("");
+  const [errorMessage, setErrotMessage] = useState("")
   const navigate = useNavigate();
 
   function sendBinder() {
-    if (!binderName) {
+    if (!binderName.trim()) {
       console.error("Please enter a binder name");
     }
 
@@ -25,15 +26,15 @@ function CreateBinder({ userData, setUserData }) {
       )
       .then(({ status, data }) => {
         if (status) {
-          console.log("Binder created", data);
+          setErrotMessage("")
           fetchUser();
           navigate(`/${userData.attributes.username}`);
         } else {
-          console.error("Error creating binder:", data);
+          setErrotMessage(data.error || "Error Creating Binder")
         }
       })
       .catch((error) => {
-        console.error("Error:", error);
+        setErrotMessage("An error occured. Please Try Again Later")
       });
   }
 
@@ -66,6 +67,7 @@ function CreateBinder({ userData, setUserData }) {
           />
           <button type="submit">Submit</button>
         </form>
+        {errorMessage && <p classname="error-message">{errorMessage}</p>}
       </div>
     </div>
   );
