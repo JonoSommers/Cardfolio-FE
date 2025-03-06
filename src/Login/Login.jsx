@@ -23,7 +23,14 @@ function Login({setUserData}) {
 
   function fetchUser() {
     const foundUser = users.find((user) => user.attributes.username === username)
-    setUserData(foundUser)
+		fetch(`http://localhost:3000/api/v1/users/${foundUser.id}`)
+			.then((response) => response.json())
+			.then((data) => {
+				console.log(data)
+				setUserData(data.data)
+			})
+			.catch((error) => console.log(error))
+
     if (foundUser) {
       navigate(`/${foundUser.attributes.username}`)
     } else {

@@ -6,6 +6,7 @@ function HomePage({ userData }) {
   const displayName = useParams().username;
   const [allCards, setAllCards] = useState([]);
 
+	console.log('userData: ', userData)
   useEffect(() => {
     if (userData?.attributes?.binders?.length > 0) {
 

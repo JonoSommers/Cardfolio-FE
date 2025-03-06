@@ -12,7 +12,7 @@ import BinderCardDetailView from './BinderCardDetailView/BinderCardDetailView.js
 
 function App() {
     const [userData, setUserData] = useState([])
-
+	console.log('usersdata: ', userData)
     return (
         <div className="App">
             <section className="Snorlax">
@@ -24,7 +24,7 @@ function App() {
                     <Route path="/pokemon_search/:cardId" element={<PokeDetailView userData={userData}/>} />
                     <Route path="/mtg_search/:cardId" element={<MagicDetailView userData={userData}/>} />
                     <Route path="/binder/:bindername" element={<BinderView userData={userData} />} />
-		    <Route path="/binder/:bindername/:cardName" element={<BinderCardDetailView userData={userData} />} />
+		    						<Route path="/binder/:bindername/:cardName" element={<BinderCardDetailView userData={userData} />} />
                 </Routes>
             </section>
         </div>
