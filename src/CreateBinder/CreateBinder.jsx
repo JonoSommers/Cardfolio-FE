@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./CreateBinder.css";
 
-function CreateBinder(userData) {
+function CreateBinder({userData}) {
 const [binderName, setBinderName] = useState("")
 const [userID, setUserID] = useState('')
 
@@ -12,7 +12,7 @@ useEffect(() => {
     if (userData?.id > 0) {
         setUserID(String(userData.id));
     }
-}, [userData])
+}, [])
 
 function sendBinder() {
     if (binderName) {
