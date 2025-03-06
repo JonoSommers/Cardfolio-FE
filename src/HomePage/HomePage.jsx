@@ -52,6 +52,11 @@ function HomePage({ userData }) {
             </div>
           </section>
         )}
+				<div>
+					<Link to={"/"}>
+						<button className="logout-button">Logout</button>
+					</Link>
+				</div>
       </div>
     </div>
   );
