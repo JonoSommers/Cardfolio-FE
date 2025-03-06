@@ -5,6 +5,7 @@ function PokeDetailView({userData}) {
     const clickedCardId = useParams().cardId
     const [clickedCard, setClickedCard] = useState()
     const [selectedBinderId, setSelectedBinderId] = useState(0)
+    const [message, setMessage] = useState("")
 
     useEffect(() => {
       if (userData?.attributes?.binders?.length > 0) {
@@ -45,8 +46,18 @@ function PokeDetailView({userData}) {
             image_url: clickedCard.data.images.small, 
             category: 0})
         })
-        .then(response => response.json())
-        .catch(error => console.error("Error adding card to binder:", error))
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.data) {
+            setMessage(`${clickedCard.data.name} has been added to your binder!`);
+          } else {
+            setMessage(data.error.message);
+          }
+        })
+        .catch((error) => {
+          console.error("Error adding card to binder:", error);
+          setMessage("Error adding card to binder.");
+        });
       }
     };
 
@@ -67,6 +78,7 @@ function PokeDetailView({userData}) {
                   </select>
                 </label>
                 <button onClick={() => addToBinder()}>Add To Binder</button>
+                {message && <p className="confirmation-message">{message}</p>}
                 <Link to={"/pokemon_search"}><button>Back</button></Link>
             </section>
         )
