@@ -9,6 +9,7 @@ import PokeDetailView from './PokeDetailView/PokeDetailView.jsx'
 import MagicDetailView from './MagicDetailView/MagicDetailView.jsx';
 import BinderView from './BinderView/BinderView.jsx';
 import BinderCardDetailView from './BinderCardDetailView/BinderCardDetailView.jsx'
+import CreateBinder from './CreateBinder/CreateBinder.jsx'
 
 function App() {
     const [userData, setUserData] = useState([])
@@ -23,7 +24,8 @@ function App() {
                     <Route path="/pokemon_search/:cardId" element={<PokeDetailView userData={userData}/>} />
                     <Route path="/mtg_search/:cardId" element={<MagicDetailView userData={userData}/>} />
                     <Route path="/binder/:bindername" element={<BinderView userData={userData} />} />
-		    	    <Route path="/binder/:bindername/:cardName" element={<BinderCardDetailView userData={userData} />} />
+				            <Route path="/binder/:bindername/:cardName" element={<BinderCardDetailView userData={userData} />} />
+                    <Route path="/createbinder" element={<CreateBinder userData={userData}/>} />
                 </Routes>
             </section>
         </div>
