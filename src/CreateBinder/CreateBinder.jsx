@@ -4,7 +4,6 @@ import "./CreateBinder.css";
 
 function CreateBinder({ userData }) {
   const [binderName, setBinderName] = useState("");
-  const [userID, setUserID] = useState("");
   const navigate = useNavigate();
 
   function sendBinder() {
