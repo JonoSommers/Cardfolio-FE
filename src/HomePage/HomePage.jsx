@@ -22,8 +22,9 @@ function HomePage({userData}) {
       {userData.attributes.binders.map((binder) => (
       <Link key={binder.id} to={`/binder/${binder.name}`}>
         <button className="bindersButton" key={binder.id}>{binder.name}</button>
-      </Link>  
+      </Link>
       ))}
+      {userData.attributes.binders.length === 1 ? <Link to='/createbinder'><button className="createbinder">Create A New Binder</button></Link> : null }
       </section>
     </div>
     </div>

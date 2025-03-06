@@ -1,0 +1,67 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #103941; 
+    font-family: 'Arial', sans-serif;
+}
+
+.createBinder-container {
+    width: 90%;  
+    max-width: 800px;  
+    background-color: #645AAA;
+    padding: 60px;  
+    padding-bottom: 150px;
+    border-radius: 20px;  
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 4px solid white;  
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);  
+}
+
+.submit {
+    font-size: 20px; 
+    font-weight: bold;
+    padding: 18px 30px;
+    border: 4px solid black; 
+    border-radius: 15px;
+    background-color: #888888;
+    color: black;
+    cursor: pointer;
+    width: 35%;
+    transition: all 0.3s ease;
+}
+
+.newName {
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    background: #B986D7;
+    margin-bottom: 25px;
+    padding: 12px;
+    border-radius: 20px;
+    width: 110%;
+    border: solid black;
+}
+
+.binderName {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    background-color: #564A94;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.submit:hover {
+    background-color: #B986D7;
+}
