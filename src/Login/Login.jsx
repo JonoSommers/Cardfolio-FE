@@ -8,7 +8,6 @@ function Login({setUserData}) {
   const [users, setUsers] = useState([])
   const navigate = useNavigate()
 
-  
   useEffect(() => {
     fetch("http://localhost:3000/api/v1/users")
       .then((response) => response.json())
@@ -19,23 +18,20 @@ function Login({setUserData}) {
         console.error("Error fetching users:", error)
         setMessage("Error loading users.")
       })
-  }, [])
+  }, [users])
 
   function fetchUser() {
     const foundUser = users.find((user) => user.attributes.username === username)
+    if (!foundUser) {
+      setMessage(`User ${username} not found`)
+    }
 		fetch(`http://localhost:3000/api/v1/users/${foundUser.id}`)
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data)
 				setUserData(data.data)
+        navigate(`/${foundUser.attributes.username}`)
 			})
 			.catch((error) => console.log(error))
-
-    if (foundUser) {
-      navigate(`/${foundUser.attributes.username}`)
-    } else {
-      setMessage("User not found")
-    }
   }
   
   function createUser() {
@@ -50,6 +46,7 @@ function Login({setUserData}) {
         .then((response) => response.json())
         .then((data) => {
           if (data.data && data.data.attributes) {
+            setUsers(data.data)
             setMessage(`The account with the username ${data.data.attributes.username} has been created`); 
           } else {
             setMessage("Error creating account.");
