@@ -8,76 +8,181 @@
     padding: 20px;
 }
 
-.CardsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.card {
-    width: 200px;
-    height: 300px;
-    margin: 20px;
+:root {
+    --color1: rgb(0, 231, 255);
+    --color2: rgb(255, 0, 231);
+    --back: url(https://cdn2.bulbagarden.net/upload/1/17/Cardback.jpg);
+  }
+  
+  .search-card {
+  
+  
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
+    margin: 20px;
+    z-index: 10;
+    touch-action: none;
+    border-radius: 5% / 3.5%;
+    box-shadow: 
+      -5px -5px 5px -5px var(--color1), 
+      5px 5px 5px -5px var(--color2), 
+      -7px -7px 10px -5px transparent, 
+      7px 7px 10px -5px transparent, 
+      0 0 5px 0px rgba(255,255,255,0),
+      0 55px 35px -20px rgba(0, 0, 0, 0.5);
+    
+    transition: transform 0.5s ease, box-shadow 0.2s ease;
+    will-change: transform, filter;
     background-color: #040712;
+    background-image: var(--front);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
-    transition: transform 0.3s ease-in-out;
-}
-
-.card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-    transition: opacity 0.3s ease-in-out; 
-}
-
-.card:hover img {
-    opacity: 0.7; 
-}
-
-.card:hover {
-    transform: scale(1.05); 
-}
-
-.card:before {
+    background-position: 50% 50%;
+    transform-origin: center;
+  }
+  
+  .card:hover {
+    box-shadow: 
+      -20px -20px 30px -25px var(--color1), 
+      20px 20px 30px -25px var(--color2), 
+      -7px -7px 10px -5px var(--color1), 
+      7px 7px 10px -5px var(--color2), 
+      0 0 13px 4px rgba(255,255,255,0.3),
+      0 55px 35px -20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .search-card:before,
+  .search-card:after {
     content: "";
     position: absolute;
-    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('https://assets.codepen.io/13471/sparkles.gif') no-repeat center center;
-    background-size: cover;
-    opacity: 0;
-    pointer-events: none; 
-    transition: opacity 0.3s ease; 
-}
-
-.card:hover:before {
-    opacity: 1; 
-}
-
-.searchIcon2 {
-	display: flex;
-	width: 50px;
-	justify-content: space-between;
-	position: absolute;
-	top: 16px;
-	right: 280px;
-}
-
-.searchBar2 {
-	padding: 6px;
-	display: flex;
-	justify-content: space-between;
-	position: absolute;
-	width: 20%;
-	height: 2.5%;
-	top: 20px;
-	right: 20px;
-}
+    top: 0;
+    background-repeat: no-repeat;
+    opacity: .5;
+    mix-blend-mode: color-dodge;
+    transition: all .33s ease;
+  }
+  
+  .search-card:before {
+    background-position: 50% 50%;
+    background-size: 300% 300%;
+    background-image: linear-gradient(
+      115deg,
+      transparent 0%,
+      var(--color1) 25%,
+      transparent 47%,
+      transparent 53%,
+      var(--color2) 75%,
+      transparent 100%
+    );
+    opacity: .5;
+    filter: brightness(.5) contrast(1);
+    z-index: 1;
+  }
+  
+  .search-card:after {
+    opacity: 1;
+    background-image: url("https://assets.codepen.io/13471/sparkles.gif"), 
+      url(https://assets.codepen.io/13471/holo.png), 
+      linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
+    background-position: 50% 50%;
+    background-size: 160%;
+    background-blend-mode: overlay;
+    z-index: 2;
+    filter: brightness(1) contrast(1);
+    transition: all .33s ease;
+    mix-blend-mode: color-dodge;
+    opacity: .75;
+  }
+  
+  .search-card.active:after,
+  .search-card:hover:after {
+    filter: brightness(1) contrast(1);
+    opacity: 1;
+  }
+  
+  .search-card.active,
+  .search-card:hover {
+    animation: none;
+    transition: box-shadow 0.1s ease-out;
+  }
+  
+  .search-card.active:before,
+  .search-card:hover:before {
+    animation: none;
+    background-image: linear-gradient(
+      110deg,
+      transparent 25%,
+      var(--color1) 48%,
+      var(--color2) 52%,
+      transparent 75%
+    );
+    background-position: 50% 50%;
+    background-size: 250% 250%;
+    opacity: .88;
+    filter: brightness(.66) contrast(1.33);
+    transition: none;
+  }
+  
+  .search-card.active:before,
+  .search-card:hover:before,
+  .search-card.active:after,
+  .search-card:hover:after {
+    animation: none;
+    transition: none;
+  }
+  
+  .search-card.animated {
+    transition: none;
+    animation: holoCard 12s ease 0s 1;
+    &:before { 
+      transition: none;
+      animation: holoGradient 12s ease 0s 1;
+    }
+    &:after {
+      transition: none;
+      animation: holoSparkle 12s ease 0s 1;
+    }
+  }
+  
+  @keyframes holoSparkle {
+    0%, 100% {
+      opacity: .75; background-position: 50% 50%; filter: brightness(1.2) contrast(1.25);
+    }
+    5%, 8% {
+      opacity: 1; background-position: 40% 40%; filter: brightness(.8) contrast(1.2);
+    }
+    13%, 16% {
+      opacity: .5; background-position: 50% 50%; filter: brightness(1.2) contrast(.8);
+    }
+    35%, 38% {
+      opacity: 1; background-position: 60% 60%; filter: brightness(1) contrast(1);
+    }
+    55% {
+      opacity: .33; background-position: 45% 45%; filter: brightness(1.2) contrast(1.25);
+    }
+  }
+  
+  @keyframes holoGradient {
+    0%, 100% {
+      opacity: 0.5;
+      background-position: 50% 50%;
+      filter: brightness(.5) contrast(1);
+    }
+    5%, 9% {
+      background-position: 100% 100%;
+      opacity: 1;
+      filter: brightness(.75) contrast(1.25);
+    }
+    13%, 17% {
+      background-position: 0% 0%;
+      opacity: .88;
+    }
+    35%, 39% {
+      background-position: 100% 100%;
+      opacity: 1;
+      filter: brightness(1) contrast(1.5);
+    }
+  }

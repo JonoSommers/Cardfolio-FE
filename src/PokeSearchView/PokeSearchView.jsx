@@ -5,7 +5,6 @@ import './PokeSearchView.css';
 function PokeSearchView({ id, p_card_path, p_card_name }) {
     const [cardStyle, setCardStyle] = useState({});
 
-   
     const handleMouseMove = (e) => {
         const pos = [e.nativeEvent.offsetX, e.nativeEvent.offsetY];
         const card = e.currentTarget;
@@ -45,16 +44,17 @@ function PokeSearchView({ id, p_card_path, p_card_name }) {
 
     return (
         <section className='CardsContainer'>
-            <div
-                className="card"
-                onMouseMove={handleMouseMove}
-                onMouseOut={handleMouseOut}
-                style={cardStyle} 
-            >
-                <Link to={`/pokemon_search/${id}`}>
+            {/* Move Link to wrap the entire card */}
+            <Link to={`/pokemon_search/${id}`} className="card-link">
+                <div
+                    className="search-card"
+                    onMouseMove={handleMouseMove}
+                    onMouseOut={handleMouseOut}
+                    style={cardStyle} 
+                >
                     <img src={p_card_path} alt={p_card_name} />
-                </Link>
-            </div>
+                </div>
+            </Link>
         </section>
     );
 }

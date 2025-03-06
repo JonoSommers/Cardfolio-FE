@@ -4,6 +4,7 @@ import PokeSearchView from '../PokeSearchView/PokeSearchView.jsx';
 import homeIcon from '../icons/home.png'
 import searchIcon from '../icons/search.png'
 
+
 const fetchPokemonCards = 'https://api.pokemontcg.io/v2/cards?page=1&pageSize=100';
 
 function PokeCardsContainer({userData}) {

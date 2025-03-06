@@ -37,6 +37,7 @@ function HomePage({ userData }) {
               <button className="bindersButton">{binder.name}</button>
             </Link>
           ))}
+           {userData.attributes.binders.length === 1 ? <Link to='/createbinder'><button className="createbinder">Create A New Binder</button></Link> : null }
         </section>
 
         {favoriteCards.length > 0 && (
