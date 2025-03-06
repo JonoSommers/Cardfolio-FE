@@ -24,24 +24,24 @@ function BinderView({ userData }) {
 	})
 
   return (
-    <section>
-			<header>
-				<h1>{binderName}</h1>
-			</header>
+    <section className="binderView">
+        <div className="top">
+            <Link to={`/${userName}`}>
+					<img className="homeIcon" src={homeIcon} alt="home icon" />
+				</Link>
+				<h1 className="binderName">{binderName}</h1>
 			<img className="searchIcon" src={searchIcon} alt="search icon" /> 
 			<input 
 				className="searchBar"
 				type="text"
-				placeholder="Search Pokemon Name..."
+				placeholder="Search Name..."
 				value={search}
 				onChange={(event) => setSearch(event.target.value)}
 			/>
-			<section className="BinderView">
+                </div>
+			<section className="binderCards">
 				{searchCards}
 			</section>
-				<Link to={`/${userName}`}>
-					<img className="homeIcon" src={homeIcon} alt="home icon" />
-				</Link>
     </section>
   )
 }
