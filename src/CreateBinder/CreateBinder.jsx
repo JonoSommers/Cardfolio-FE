@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./CreateBinder.css";
 
-function CreateBinder({ userData }) {
+function CreateBinder({ userData, setUserData }) {
   const [binderName, setBinderName] = useState("");
   const navigate = useNavigate();
 
@@ -26,6 +26,7 @@ function CreateBinder({ userData }) {
       .then(({ status, data }) => {
         if (status) {
           console.log("Binder created", data);
+          fetchUser();
           navigate(`/${userData.attributes.username}`);
         } else {
           console.error("Error creating binder:", data);
@@ -35,6 +36,16 @@ function CreateBinder({ userData }) {
         console.error("Error:", error);
       });
   }
+
+  function fetchUser() {
+		fetch(`http://localhost:3000/api/v1/users/${userData.id}`)
+			.then((response) => response.json())
+			.then((data) => {
+				setUserData(data.data)
+			})
+			.catch((error) => console.log(error))
+  }
+
 
   const handleSubmission = (event) => {
     event.preventDefault();
