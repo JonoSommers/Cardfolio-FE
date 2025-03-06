@@ -10,7 +10,7 @@ function PokeDetailView({userData}) {
       if (userData?.attributes?.binders?.length > 0) {
           setSelectedBinderId(String(userData.attributes.binders[0].id));
       }
-  }, [userData]);
+  }, []);
 
   const allBinders = userData.attributes.binders.map(binder => {
     return (
@@ -53,9 +53,9 @@ function PokeDetailView({userData}) {
     if(clickedCard) {
         return (
             <section>
-							<header>
-								<h1>{clickedCard.data.name}</h1>
-							</header>
+				<header>
+				    <h1>{clickedCard.data.name}</h1>
+				</header>
                 <img src= { clickedCard.data.images.small } alt= { clickedCard.data.name } />
                 <label>Users Binders:
                   <select 
