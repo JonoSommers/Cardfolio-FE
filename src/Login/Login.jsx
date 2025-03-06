@@ -67,7 +67,7 @@ function Login({setUserData}) {
   return (
     <main className="Snorlax">
       <header>
-        <h1>Cardfolio</h1>
+        <h1 className="cardfolio">Cardfolio</h1>
       </header>
       <div className="snorlax-belly">
         <form onSubmit={handleSubmit}>
