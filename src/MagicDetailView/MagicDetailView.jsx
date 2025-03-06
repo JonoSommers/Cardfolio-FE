@@ -4,16 +4,18 @@ import { useState, useEffect } from 'react'
 function MagicDetailView({userData}) {
     const clickedCardId = useParams().cardId
     const [clickedCard, setClickedCard] = useState()
-    const [selectedBinderName, setSelectedBinderName] = useState("")
     const [selectedBinderId, setSelectedBinderId] = useState(0)
 
-    console.log("data", userData?.attributes?.binders)
+    useEffect(() => {
+      if (userData?.attributes?.binders?.length > 0) {
+          setSelectedBinderId(String(userData.attributes.binders[0].id));
+      }
+  }, [userData]);
 
     const allBinders = userData.attributes.binders.map(binder => {
         return (
             <option key={binder.id} value={binder.id}>
                 {binder.name}
-                {console.log("binder id:", binder.id)}
             </option>
 
     )          
@@ -35,22 +37,22 @@ function MagicDetailView({userData}) {
 
 
 
-    // function handleBinderChange(event) {
-    //   setSelectedBinderID(event.target.value)
-    // };
 
     function addToBinder() {
-      fetch(`http://localhost:3000/api/v1/users/${userData.id}/binders/${selectedBinderId}/binder_cards`, { 
-        method: "POST", 
-        headers: {
-          "Content-Type": "application/json"
-        }, 
-        body: JSON.stringify({name: clickedCard.name, image_url: clickedCard.imageUrl, category: 1})
-      })
-
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error("Error adding card to binder:", error))
+      if (selectedBinderId) {
+        fetch(`http://localhost:3000/api/v1/users/${userData.id}/binders/${selectedBinderId}/binder_cards`, { 
+          method: "POST", 
+          headers: {
+            "Content-Type": "application/json"
+          }, 
+          body: JSON.stringify({
+            name: clickedCard.name, 
+            image_url: clickedCard.imageUrl, 
+            category: 1})
+        })
+        .then(response => response.json())
+        .catch(error => console.error("Error adding card to binder:", error))
+      }
     };
     
 
@@ -61,7 +63,7 @@ function MagicDetailView({userData}) {
                 <label>Users Binders:
                   <select 
                     name="selected binder"
-                    onChange={(event) => setSelectedBinderId(event.target.value)}
+                    onChange={event => setSelectedBinderId(String(event.target.value))}
                     value={selectedBinderId}
                   >
                     {allBinders}
