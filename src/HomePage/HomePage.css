@@ -93,3 +93,54 @@ body, html {
     margin-top: 30px;
     padding: 0 20px;
 }
+
+.favorites-container {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .favorites-container h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .favorite-cards {
+    display: flex;
+    gap: 15px;
+    flex-wrap: nowrap;
+    overflow-x: auto; 
+    max-width: 100%;  
+    padding-bottom: 10px; 
+  }
+  
+  .card-display {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+    flex-shrink: 0;  
+  }
+  
+  .card-display:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-display img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .card-display p {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #555;
+  }
