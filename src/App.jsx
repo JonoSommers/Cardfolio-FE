@@ -19,8 +19,8 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Login setUserData={setUserData} />} />
                     <Route path="/:username" element={<HomePage userData={userData} />}/>
-                    <Route path="/pokemon_search" element={<PokeCardsContainer />} />
-                    <Route path="/mtg_search" element={<MagicCardsContainer />} />
+                    <Route path="/pokemon_search" element={<PokeCardsContainer userData={userData}/>} />
+                    <Route path="/mtg_search" element={<MagicCardsContainer userData={userData}/>} />
                     <Route path="/pokemon_search/:cardId" element={<PokeDetailView userData={userData}/>} />
                     <Route path="/mtg_search/:cardId" element={<MagicDetailView userData={userData}/>} />
                     <Route path="/binder/:bindername" element={<BinderView userData={userData} />} />
