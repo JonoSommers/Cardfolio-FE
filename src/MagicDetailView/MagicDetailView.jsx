@@ -11,7 +11,7 @@ function MagicDetailView({userData}) {
       if (userData?.attributes?.binders?.length > 0) {
           setSelectedBinderId(String(userData.attributes.binders[0].id));
       }
-  }, [userData]);
+  }, []);
 
     const allBinders = userData.attributes.binders.map(binder => {
         return (
