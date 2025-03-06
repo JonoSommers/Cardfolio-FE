@@ -16,32 +16,35 @@ function CreateBinder({ userData }) {
   }, [userData]); 
 
   function sendBinder() {
-    if (binderName) {
-      fetch(`http://localhost:3000/api/v1/users/${userID}/binders`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          binder_name: binderName,
-          user_id: userID,
-        }),
-      })
-        .then((response) =>
-          response.json().then((data) => ({ status: response.ok, data }))
-        )
-        .then(({ status, data }) => {
-          if (status) {
-            console.log("Binder created", data);
-            navigate(`/${userData.attributes.username}`);
-          } else {
-            console.error("Error creating binder:", data);
-          }
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
+    if (!binderName) {
+      console.error("Please enter a binder name");
+      return;
     }
+
+    fetch(`http://localhost:3000/api/v1/users/${userID}/binders`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        binder_name: binderName,
+        user_id: userID,
+      }),
+    })
+      .then((response) =>
+        response.json().then((data) => ({ status: response.ok, data }))
+      )
+      .then(({ status, data }) => {
+        if (status) {
+          console.log("Binder created", data);
+          navigate(`/${userData.attributes.username}`);
+        } else {
+          console.error("Error creating binder:", data);
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }
 
   const handleSubmission = (event) => {
