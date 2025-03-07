@@ -48,7 +48,7 @@ function HomePage({ userData, setUserData }) {
               <button className="bindersButton">{binder.name}</button>
             </Link>
           ))}
-           {userData.attributes.binders.length === 1 ? <Link to='/createbinder'><button className="createbinder">Create A New Binder</button></Link> : null }
+            {userData.attributes.binders.length === 1 ? <Link to='/createbinder'><button className="createbinder">Create A New Binder</button></Link> : null }
         </section>
 
         {favoriteCards.length > 0 && (
@@ -63,6 +63,11 @@ function HomePage({ userData, setUserData }) {
             </div>
           </section>
         )}
+				<div>
+					<Link to={"/"}>
+						<button className="logout-button">Logout</button>
+					</Link>
+				</div>
       </div>
     </div>
   );
