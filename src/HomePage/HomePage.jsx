@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import "./HomePage.css";
 
-function HomePage({ userData }) {
+function HomePage({ userData, setUserData }) {
   const displayName = useParams().username;
   const [allCards, setAllCards] = useState([]);
 
@@ -13,7 +13,18 @@ function HomePage({ userData }) {
 
       setAllCards(allCards);
     }
+    fetchUser()
   }, []);
+
+
+  function fetchUser() {
+		fetch(`http://localhost:3000/api/v1/users/${userData.id}`)
+		  .then((response) => response.json())
+		  .then((data) => {
+			setUserData(data.data);
+		  })
+		  .catch((error) => console.error("Error fetching user data:", error));
+	  }
 
   const favoriteCards = allCards.filter(card => card.data.attributes.favorite.favorite === true);
 
