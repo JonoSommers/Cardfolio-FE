@@ -48,7 +48,7 @@ body, html {
     border: solid black;
 }
 
-.binderName {
+.createBinderName {
     width: 100%;
     height: auto;
     min-height: 300px;

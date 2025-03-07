@@ -60,7 +60,7 @@ function CreateBinder({ userData, setUserData }) {
           <label className="newName">Binder Name</label>
           <input
             type="text"
-            name="binderName"
+            name="createBinderName"
             placeholder="Enter Binder Name"
             value={binderName}
             onChange={(event) => setBinderName(event.target.value)}
