@@ -18,7 +18,7 @@ function Login({setUserData}) {
         console.error("Error fetching users:", error)
         setMessage("Error loading users.")
       })
-  }, [users])
+  }, [message])
 
   function fetchUser() {
     const foundUser = users.find((user) => user.attributes.username === username)
