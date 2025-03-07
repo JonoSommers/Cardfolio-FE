@@ -40,24 +40,27 @@ function MagicCardsContainer({userData}) {
     })
 
     return (
-        <section>
-                <header>
+        <section className="MagicContainer">
+                <header className="MagicHeader">
                     <h1>Magic</h1>
                 </header>
-                <img className="searchIcon3" src={searchIcon} alt="search icon" />
-                <input 
-                    className="searchBar3"
-                    type="text"
-                    placeholder="Search Magic Name..."
-                    value={magicSearch}
-                    onChange={(event) => setMagicSearch(event.target.value)}
-                />
-            <section className="MTGSearchView">
+                <div className="searchSection">
+                    <Link to={`/${userData.attributes.username}`}>
+                        <img className="homeIcon" src={homeIcon} alt="home icon" />
+                    </Link>
+                    <input 
+                        className="searchBar3"
+                        type="text"
+                        placeholder="Search Magic Name..."
+                        value={magicSearch}
+                        onChange={(event) => setMagicSearch(event.target.value)}
+                    />
+                    <img className="searchIcon3" src={searchIcon} alt="search icon" />
+                </div>
+            <section className="MagicSearchView">
                 { cards }
             </section>
-                <Link to={`/${userData.attributes.username}`}>
-                    <img className="homeIcon" src={homeIcon} alt="home icon" />
-                </Link>
+                
         </section>
     )
 }

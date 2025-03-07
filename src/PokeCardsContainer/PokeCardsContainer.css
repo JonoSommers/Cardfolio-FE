@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Overall Container for Layout */
+.PokeContainer {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    height: 100vh; /* Fill the entire viewport height */
+}
+
+/* Header Styling */
+.PokeHeader {
+    background-color: #333; /* Background color for the header */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+}
+
+/* Section containing search bar and home button */
+.searchSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;  /* Adjust as necessary */
+    background-color: #f1f1f1; /* Light background for search section */
+}
+
+/* Home button icon styling */
+.homeIcon {
+    width: 30px; /* Adjust size of home icon */
+    height: auto;
+    cursor: pointer;
+}
+
+/* Search bar styling */
+.searchBar2 {
+    background-color: #fff;
+    padding: 10px;
+    margin: 0;
+    width: 60%; /* Adjust width as needed */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Pokemon Cards Container */
+.PokemonSearchView {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    flex-grow: 1;  /* Take up remaining space */
+    overflow-y: auto;
+}
+
+/* Individual Pokemon Card */
+.pokemon-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    box-sizing: border-box;
+}

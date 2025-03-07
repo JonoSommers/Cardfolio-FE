@@ -7,11 +7,14 @@ body, html {
     align-items: center;
     background-color: #103941; 
     font-family: 'Arial', sans-serif;
+    
 }
 
 .home-container {
-    width: 90%; 
+    width: 140%; 
     max-width: 800px; 
+    height: 41rem;
+    margin-top: -1rem;
     background-color: #645AAA;
     padding: 60px; 
     padding-bottom: 150px;
@@ -62,7 +65,7 @@ body, html {
 } */
 
 .bindersButton, .createBinder {
-    font-size: 20px; 
+    font-size: 11px; 
     font-weight: bold;
     padding: 18px 30px;
     border: 4px solid black; 
@@ -75,7 +78,7 @@ body, html {
 }
 
 .homeViewButton {
-    font-size: 24px; 
+    font-size: 16px; 
     font-weight: bold;
     padding: 18px 30px;
     border: 4px solid black; 
@@ -83,14 +86,14 @@ body, html {
     background-color: #F5E6C8;
     color: black;
     cursor: pointer;
-    width: 100%;
+    width: 71%;
     max-width: 400px; 
     transition: all 0.3s ease;
 }
 
 .homeViewButton:hover, .bindersButton:hover, .createBinder {
     background-color: #5C7FD0;
-} */
+} 
 
 .card-text {
     font-size: 22px; 

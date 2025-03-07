@@ -1,6 +1,10 @@
-
+.PokeDetails {
+  display: grid;
+  justify-items: center;
+}
 
 .PokeName{
+    font-size:xx-large;
     color: #98C8DE;
     margin: 0px;
 }
@@ -51,8 +55,8 @@ select {
   width: 71.5vw;
   height: 100vw;
   @media screen and (min-width: 600px) {
-    width: clamp(12.9vw, 61vh, 18vw);
-    height: clamp(18vw, 85vh, 25.2vw);
+    width: clamp(12.9vw, 61vh, 16vw);
+    height: clamp(18vw, 85vh, 22.2vw);
   }
 
   position: relative;

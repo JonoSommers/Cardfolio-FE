@@ -1,49 +1,79 @@
-.MTGcontainer {
-  display: flex; 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
-.MTGimg {
-    object-fit: contain;
-    border-radius: 20px;
-}
-  
-/* @media screen and (max-width: 1900px) {
-    .MTGcontainer {
-      grid-template-columns: repeat(6, 1fr);
-      grid-template-rows: repeat(13, 1fr);
-    }
-}
-  
-
-  @media screen and (max-width: 1000px) {
-    .MTGcontainer {
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(26, 1fr);
-    }
-  }
-  @media screen and (max-width: 600px) {
-    .MTGcontainer {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(39, 1fr);
-    } 
-} */
-
-.searchIcon3 {
-	display: flex;
-	width: 50px;
-	justify-content: space-between;
-	position: absolute;
-	top: 16px;
-	right: 280px;
+/* Overall Container for Layout */
+.MagicContainer {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  height: 100vh; /* Fill the entire viewport height */
 }
 
-.searchBar3 {
-	padding: 6px;
-	display: flex;
-	justify-content: space-between;
-	position: absolute;
-	width: 20%;
-	height: 2.5%;
-	top: 20px;
-	right: 20px;
+/* Header Styling */
+.MagicHeader {
+  background-color: #333; /* Background color for the header */
+  color: white;
+  padding: 20px;
+  text-align: center;
+  z-index: 10;
+  position: relative;
+}
+
+/* Section containing search bar and home button */
+.searchSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;  /* Adjust as necessary */
+  background-color: #f1f1f1; /* Light background for search section */
+}
+
+/* Home button icon styling */
+.homeIcon {
+  width: 30px; /* Adjust size of home icon */
+  height: auto;
+  cursor: pointer;
+}
+
+/* Search bar styling */
+.searchBar2 {
+  background-color: #fff;
+  padding: 10px;
+  margin: 0;
+  width: 60%; /* Adjust width as needed */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Pokemon Cards Container */
+.MagicSearchView {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  flex-grow: 1;  /* Take up remaining space */
+  overflow-y: auto;
+}
+
+/* Individual Pokemon Card */
+.magic-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 150px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Footer (optional) */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  z-index: 10;
 }

@@ -2,10 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
     max-width: calc(5 * 250px + 4 * 20px); 
-    margin: auto;
-    padding: 20px;
 }
 
 :root {

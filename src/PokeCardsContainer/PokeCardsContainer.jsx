@@ -37,26 +37,29 @@ function PokeCardsContainer({userData}) {
     ));
 
     return (
-        <section>
-            <header>
-				<h1>Pokemon</h1>
-			</header>
-            <img className="searchIcon2" src={searchIcon} alt="search icon" />
-            <input 
-				className="searchBar2"
-				type="text"
-				placeholder="Search Pokemon Name..."
-				value={pokeSearch}
-				onChange={(event) => setPokeSearch(event.target.value)}
-			/>
+        <section className="PokeContainer">
+            <header className="PokeHeader">
+                <h1>Pokemon</h1>
+            </header>
+            <div className="searchSection">
+                <Link to={`/${userData.attributes.username}`} className="homeLink">
+                    <img className="homeIcon" src={homeIcon} alt="home icon" />
+                </Link>
+                <input
+                    className="searchBar2"
+                    type="text"
+                    placeholder="Search Pokemon Name..."
+                    value={pokeSearch}
+                    onChange={(event) => setPokeSearch(event.target.value)}
+                />
+                <img className="searchIcon3" src={searchIcon} alt="search icon" />
+            </div>
             <section className="PokemonSearchView">
                 {cards}
             </section>
-                <Link to={`/${userData.attributes.username}`}>
-                    <img className="homeIcon" src={homeIcon} alt="home icon" />
-                </Link>
         </section>
     );
 }
+    
 
 export default PokeCardsContainer;
