@@ -26,6 +26,10 @@ function HomePage({ userData, setUserData }) {
 		  .catch((error) => console.error("Error fetching user data:", error));
 	  }
 
+    useEffect(() => {
+      fetchUser()
+    }, [])
+
   const favoriteCards = allCards.filter(card => card.data.attributes.favorite.favorite === true);
 
   return (
