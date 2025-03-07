@@ -37,7 +37,7 @@ function BinderView({ userData }) {
 				binder_name: newName
 			}),
 		})
-		.then((response) => response.json())
+		.then(response => response.json())
 	}
 
 
@@ -45,7 +45,7 @@ function BinderView({ userData }) {
 		event.preventDefault();
 		renameBinder()
 		setShowInput(!showInput)
-		navigate(`/${userData.attributes.name}`)
+		navigate(`/${userName}`)
 	  };
 
   return (
