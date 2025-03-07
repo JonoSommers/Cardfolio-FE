@@ -91,11 +91,10 @@ function MagicDetailView({userData}) {
       }
     };
     
-
-    if(clickedCard) {
-      return (
-        <section className="MagicDetails">
-		      <header>
+  if(clickedCard) {
+    return (
+      <section className="MagicDetails">
+		    <header>
 			      <h1 className="MagicName">{clickedCard.name}</h1>
 		      </header>
           <div

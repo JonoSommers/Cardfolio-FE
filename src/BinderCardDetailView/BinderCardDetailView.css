@@ -7,7 +7,6 @@
     height: 100vh;
     margin-top: -45px;
 }
-
 .detail-card img {
     width: 100%; 
     height: auto; 
@@ -15,14 +14,12 @@
     object-fit: contain;
     border-radius: 10px;
 }
-
 :root {
     --color1: rgb(0, 231, 255);
     --color2: rgb(255, 0, 231);
     --back: url(https://cdn2.bulbagarden.net/upload/1/17/Cardback.jpg);
   }
-  
-  .detail-card {
+.detail-card {
     width: 10rem;
     height: 50rem;
     position: relative;
@@ -38,7 +35,6 @@
       7px 7px 10px -5px transparent, 
       0 0 5px 0px rgba(255,255,255,0),
       0 55px 35px -20px rgba(0, 0, 0, 0.5);
-    
     transition: transform 0.5s ease, box-shadow 0.2s ease;
     will-change: transform, filter;
     background-color: #040712;
@@ -48,8 +44,7 @@
     background-position: 50% 50%;
     transform-origin: center;
   }
-  
-  .detail-card:hover {
+.detail-card:hover {
     box-shadow: 
       -20px -20px 30px -25px var(--color1), 
       20px 20px 30px -25px var(--color2), 
@@ -58,9 +53,8 @@
       0 0 13px 4px rgba(255,255,255,0.3),
       0 55px 35px -20px rgba(0, 0, 0, 0.5);
   }
-  
-  .detail-card:before,
-  .detail-card:after {
+.detail-card:before,
+.detail-card:after {
     content: "";
     position: absolute;
     left: 0;
@@ -72,8 +66,7 @@
     mix-blend-mode: color-dodge;
     transition: all .33s ease;
   }
-  
-  .detail-card:before {
+.detail-card:before {
     background-position: 50% 50%;
     background-size: 300% 300%;
     background-image: linear-gradient(
@@ -89,8 +82,7 @@
     filter: brightness(.5) contrast(1);
     z-index: 1;
   }
-  
-  .detail-card:after {
+.detail-card:after {
     opacity: 1;
     background-image: url("https://assets.codepen.io/13471/sparkles.gif"), 
       url(https://assets.codepen.io/13471/holo.png), 
@@ -104,21 +96,18 @@
     mix-blend-mode: color-dodge;
     opacity: .75;
   }
-  
-  .detail-card.active:after,
-  .detail-card:hover:after {
+.detail-card.active:after,
+.detail-card:hover:after {
     filter: brightness(1) contrast(1);
     opacity: 1;
   }
-  
-  .card.active,
-  .card:hover {
+.card.active,
+.card:hover {
     animation: none;
     transition: box-shadow 0.1s ease-out;
   }
-  
-  .detail-card.active:before,
-  .detail-card:hover:before {
+.detail-card.active:before,
+.detail-card:hover:before {
     animation: none;
     background-image: linear-gradient(
       110deg,
@@ -133,16 +122,14 @@
     filter: brightness(.66) contrast(1.33);
     transition: none;
   }
-  
-  .detail-card.active:before,
-  .detail-card:hover:before,
-  .detail-card.active:after,
-  .detail-card:hover:after {
+.detail-card.active:before,
+.detail-card:hover:before,
+.detail-card.active:after,
+.detail-card:hover:after {
     animation: none;
     transition: none;
   }
-  
-  .detail-card.animated {
+.detail-card.animated {
     transition: none;
     animation: holoCard 12s ease 0s 1;
     &:before { 
@@ -154,8 +141,7 @@
       animation: holoSparkle 12s ease 0s 1;
     }
   }
-  
-  @keyframes holoSparkle {
+@keyframes holoSparkle {
     0%, 100% {
       opacity: .75; background-position: 50% 50%; filter: brightness(1.2) contrast(1.25);
     }
@@ -172,8 +158,7 @@
       opacity: .33; background-position: 45% 45%; filter: brightness(1.2) contrast(1.25);
     }
   }
-  
-  @keyframes holoGradient {
+@keyframes holoGradient {
     0%, 100% {
       opacity: 0.5;
       background-position: 50% 50%;
@@ -194,7 +179,6 @@
       filter: brightness(1) contrast(1.5);
     }
   }
-
 .backToBinder, .addFave {
     font-size: 15px; 
     font-weight: bold;
@@ -209,7 +193,6 @@
     transition: all 0.3s ease;
     margin-top: 0;
 }
-
 .detailCardName {
     font-size: 4rem;
     color:#98C8DE;

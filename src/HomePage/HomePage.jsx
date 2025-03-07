@@ -31,7 +31,6 @@ function HomePage({ userData, setUserData }) {
   return (
     <div className="home-container">
       <div className="home-name">{displayName}</div>
-
       <div className="home-image">
         <section className="home-buttons-container">
           <Link to={'/pokemon_search'}>
@@ -41,7 +40,6 @@ function HomePage({ userData, setUserData }) {
             <button className="homeViewButton">MTG</button>
           </Link>
         </section>
-
         <section className="binders-container">
           {userData.attributes.binders.map((binder) => (
             <Link key={binder.id} to={`/binder/${binder.name}`}>
