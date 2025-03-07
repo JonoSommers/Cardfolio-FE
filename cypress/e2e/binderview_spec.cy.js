@@ -2,19 +2,19 @@ import cards from '../fixtures/pokelax_binderview_data.json'
 
 describe('Binderview Spec', () => {
 	beforeEach(() => {
-		cy.intercept('GET', 'http://localhost:3000/api/v1/users', {
+		cy.intercept('GET', 'https://cardfolio-be.onrender.com/api/v1/users', {
       statusCode: 200,
       fixture: 'all_users_data.json'
     })
     .as('fetchAllUsers');
 
-		cy.intercept('GET', 'http://localhost:3000/api/v1/users/1', {
+		cy.intercept('GET', 'https://cardfolio-be.onrender.com/api/v1/users/1', {
       statusCode: 200,
       fixture: 'pokelax_binderview_data.json'
     })
     .as('fetchUserData');
 		
-    cy.visit('http://localhost:5173')
+    cy.visit('https://cardfolio-fe.onrender.com')
 		cy.wait('@fetchAllUsers')
     cy.get('input').type('PokeLax')
 		cy.get('.login_button').click()
@@ -53,13 +53,13 @@ describe('Binderview Spec', () => {
 	})
 
 	it('Rename Button Redirects to Home on Submit', () => {
-		cy.intercept('PATCH', 'http://localhost:3000/api/v1/users/1/binders/1', {
+		cy.intercept('PATCH', 'https://cardfolio-be.onrender.com/api/v1/users/1/binders/1', {
       statusCode: 200,
       fixture: 'pokelax_bindername_submit.json'
     })
     .as('changeBinderName');
 
-		cy.intercept('GET', 'http://localhost:3000/api/v1/users/1', {
+		cy.intercept('GET', 'https://cardfolio-be.onrender.com/api/v1/users/1', {
       statusCode: 200,
       fixture: 'pokelax_newbindername_data.json'
     })
