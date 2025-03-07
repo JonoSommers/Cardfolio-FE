@@ -1,0 +1,21 @@
+{
+    "data": {
+        "id": "2",
+        "type": "user",
+        "attributes": {
+            "username": "MagicMan122",
+            "binders": [
+                {
+                    "id": 2,
+                    "name": "Default Binder",
+                    "binders_cards": []
+                },
+                {
+                    "id": 3,
+                    "name": "test_binder",
+                    "binders_cards": []
+                }
+            ]
+        }
+    }
+}
