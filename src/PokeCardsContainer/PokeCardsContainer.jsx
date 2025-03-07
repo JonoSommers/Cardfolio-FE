@@ -35,6 +35,7 @@ function PokeCardsContainer({userData}) {
             p_card_name={card.name}
         />
     ));
+    
 
     return (
         <section>
