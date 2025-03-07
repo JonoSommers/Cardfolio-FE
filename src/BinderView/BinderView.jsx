@@ -28,7 +28,7 @@ function BinderView({ userData, setUserData }) {
 	})
 	
 	function renameBinder() {
-		fetch(`http://localhost:3000/api/v1/users/${userData.id}/binders/${binder.id}`,{
+		fetch(`https://cardfolio-be.onrender.com/api/v1/users/${userData.id}/binders/${binder.id}`,{
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json",
