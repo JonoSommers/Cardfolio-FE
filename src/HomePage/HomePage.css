@@ -9,7 +9,7 @@ body, html {
     font-family: 'Arial', sans-serif;
 }
 
-.card-container {
+.home-container {
     width: 90%; 
     max-width: 800px; 
     background-color: #645AAA;
@@ -24,7 +24,7 @@ body, html {
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5); 
 }
 
-.card-name {
+.home-name {
     font-size: 36px;
     font-weight: bold;
     color: white;
@@ -36,7 +36,7 @@ body, html {
     border: solid black;
 }
 
-.card-image {
+.home-image {
     width: 100%;
     height: auto;
     min-height: 300px;
@@ -49,14 +49,19 @@ body, html {
     padding: 30px;
 }
 
-.buttons-container,.binders-container {
+.home-buttons-container, .binders-container {
     display: flex;
     flex-direction: column;
     gap: 25px; 
     width: 100%;
 }
 
-.bindersButton {
+/* .binders-container{
+  display:flex;
+  flex-direction:row;
+} */
+
+.bindersButton, .createBinder {
     font-size: 20px; 
     font-weight: bold;
     padding: 18px 30px;
@@ -83,7 +88,7 @@ body, html {
     transition: all 0.3s ease;
 }
 
-.homeViewButton:hover, .bindersButton:hover {
+.homeViewButton:hover, .bindersButton:hover, .createBinder {
     background-color: #5C7FD0;
 } */
 
