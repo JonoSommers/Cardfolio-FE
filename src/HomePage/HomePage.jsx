@@ -19,7 +19,7 @@ function HomePage({ userData, setUserData }) {
 
   function fetchUser() {
 		fetch(`http://localhost:3000/api/v1/users/${userData.id}`)
-		  .then((response) => response.json())
+		  .then(response => response.json())
 		  .then((data) => {
 			setUserData(data.data);
 		  })
