@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "name": "Venusaur-EX",
+      "images": {
+        "small": "https://images.pokemontcg.io/xy1/1.png"
+      },
+      "category": 0
+    },
+    {
+      "id": "2",
+      "name": "Ampharos",
+      "images": {
+        "small": "https://images.pokemontcg.io/dp3/1.png"
+      },
+      "category": 0
+    },
+    {
+      "id": "3",
+      "name": "Aerodactyl",
+      "images": {
+        "small": "https://images.pokemontcg.io/ex12/1.png"
+      },
+      "category": 0
+    }
+  ]
+}

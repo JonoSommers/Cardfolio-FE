@@ -1,44 +1,46 @@
-describe('Login Test', () => {
+describe('Template Spec', () => {
   beforeEach(() => {
-    // Visit the live frontend URL
-    cy.visit('https://cardfolio-fe.onrender.com');
     
-    // Load the fixture data and intercept real API calls
     cy.fixture('all_users_data.json').then((usersData) => {
-      // Intercept the GET request for all users from the live API
-      cy.intercept('GET', 'https://cardfolio-be.onrender.com/api/v1/users', {
+      cy.intercept('GET', 'http://localhost:3000/api/v1/users', {
         statusCode: 200,
         body: usersData
       }).as('getUsers');
-      
-      // Find the PokeLax user in the fixture data
-      const pokeLaxUser = usersData.data.find(user => user.attributes.username === 'PokeLax');
-      
-      if (pokeLaxUser) {
-        // Intercept the GET request for a specific user's details from the live API
-        cy.intercept('GET', `https://cardfolio-be.onrender.com/api/v1/users/${pokeLaxUser.id}`, {
-          statusCode: 200,
-          body: {
-            data: {
-              id: pokeLaxUser.id,
-              type: "user",
-              attributes: {
-                username: "PokeLax",
-                favoriteCards: [] // Ensure an array exists to avoid `.map()` crash
-              }
-            }
-          }).as('getUserDetails');
-      }
     });
+    
+    cy.fixture('pokelax_data.json').then((userData) => {
+      cy.intercept('GET', `http://localhost:3000/api/v1/users/${userData.data.id}`, {
+        statusCode: 200,
+        body: userData,
+      }).as('getUserDetails');
+    });
+    
 
-    // Type "PokeLax" into the username input
+    cy.fixture(`pokemon_cards_view.json`).then((pokeCards) => {
+      cy.intercept('GET', `https://api.pokemontcg.io/v2/cards?page=1&pageSize=100`, {
+        statusCode: 200,
+        body: pokeCards,
+      }).as('getPokeCards')
+    })
+
+    cy.visit('https://cardfolio-fe.onrender.com');
+  });
+
+  it('can login and got to pokemon search view', () => {
     cy.get('input[name="username"]').type('PokeLax');
-
-    // Click the login button
     cy.get('button[name="login"]').click();
+    cy.get('[href="/pokemon_search"] > .homeViewButton').click();
 
-    // Wait for both API calls to finish
-    cy.wait('@getUsers');
-    cy.wait('@getUserDetails');
-
-    // Verify login by checking navigation to the correc
+    cy.url().should('include', '/pokemon_search');
+    cy.get('h1').should('exist')
+    cy.get('.PokemonSearchView').should('exist');
+    cy.get('.search-card')
+      .should('have.length.greaterThan', 0);
+    cy.get('.searchIcon2').should('exist')
+    cy.get('.searchBar2').should('exist')
+    cy.get('.homeIcon').should('exist')
+  });
+  
+  // Add test for typing input into searchbar
+  // clicking a card brings user to detailview
+});
