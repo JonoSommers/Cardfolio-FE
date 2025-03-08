@@ -23,6 +23,14 @@ describe('Template Spec', () => {
       }).as('getMagicCards')
     });
 
+    cy.fixture('ancestor_detail_view.json').then((magicCardDetails) => {
+      cy.intercept('GET', `https://api.magicthegathering.io/v1/cards/${magicCardDetails.card[0].id}`, {
+        statusCode: 200,
+        body: magicCardDetails
+      }).as('getMagicCardDetails');
+    });
+
+
     cy.visit('https://cardfolio-fe.onrender.com');
 
     cy.get('input[name="username"]').type('PokeLax');
@@ -51,7 +59,7 @@ describe('Template Spec', () => {
   });
 
   it('It can direct to a detail Magic card view', () => {
-    cy.get('input.searchBar3');
-     
+    cy.get('.MTGSearchView .card:first').click();
+    cy.wait('@getMagicCardDetails')
   });
 });
