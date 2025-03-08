@@ -76,7 +76,7 @@ function MagicDetailView({userData}) {
 
     function addToBinder() {
       if (selectedBinderId && clickedCard) {
-        fetch(`http://localhost:3000/api/v1/users/${userData.id}/binders/${selectedBinderId}/binder_cards`, { 
+        fetch(`https://cardfolio-be.onrender.com/api/v1/users/${userData.id}/binders/${selectedBinderId}/binder_cards`, { 
           method: "POST", 
           headers: {
             "Content-Type": "application/json"
