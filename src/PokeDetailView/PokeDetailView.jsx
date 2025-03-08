@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
 import './PokeDetailView.css'
 
-function PokeDetailView({ userData }) {
+function PokeDetailView({ userData, setUserData }) {
   const clickedCardId = useParams().cardId
   const [clickedCard, setClickedCard] = useState(null)
   const [selectedBinderId, setSelectedBinderId] = useState(0)
@@ -22,6 +22,22 @@ function PokeDetailView({ userData }) {
       </option>
     )
   })
+
+  function fetchUser() {
+		fetch(`http://cardfolio-be.onrender.com/api/v1/users/${userData.id}`)
+		  .then(response => response.json())
+      .then((data) => ({ status: response.ok, data }))
+      .then(({ status, data}) => {
+        if (status) {
+          setUserData(data.data);
+        } else {
+          setErrorMessage(data.error.message || "Error Fetching User Data.");
+        }
+      })
+		  .catch(() =>{
+        setErrorMessage("An error occured Please try again later")
+      });
+	  }
 
   function getCardDetails() {
     fetch(`https://api.pokemontcg.io/v2/cards/${clickedCardId}`)
@@ -84,7 +100,9 @@ function PokeDetailView({ userData }) {
           category: 0
         })
       })
+     
       .then(response => response.json())
+      .then(fetchUser())
       .catch(error => console.error("Error adding card to binder:", error))
     }
   }
