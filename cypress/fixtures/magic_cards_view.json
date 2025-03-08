@@ -1,22 +1,22 @@
-{
+{  
   "cards":[
-    {
-      "id": "1",
-      "name": "Ancestor's Chosen",
-      "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130550&type=card",
-      "category": 1
-    },
-    {
-      "id": "2",
-      "name": "Angel of Mercy",
-      "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129465&type=card",
-      "category": 1
-    },
-    {
-      "id": "3",
-      "name": "Ghost Warden",
-      "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=132105&type=card",
-      "category": 1
-    }
-  ]
+      {
+        "id": "1",
+        "name": "Ancestor's Chosen",
+        "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130550&type=card",
+        "category": 1
+      },
+      {
+        "id": "2",
+        "name": "Angel of Mercy",
+        "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129465&type=card",
+        "category": 1
+      },
+      {
+        "id": "3",
+        "name": "Ghost Warden",
+        "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=132105&type=card",
+        "category": 1
+      }
+    ]
 }
