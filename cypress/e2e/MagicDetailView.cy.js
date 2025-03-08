@@ -1,11 +1,11 @@
 describe('MagicDetailView Spec', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'http://localhost:3000/api/v1/users', {
+    cy.intercept('GET', 'https://cardfolio-be.onrender.com/api/v1/users', {
       statusCode: 200,
       fixture: 'all_users_data.json'
     }).as('fetchAllUsers');
 
-    cy.intercept('GET', 'http://localhost:3000/api/v1/users/2', {
+    cy.intercept('GET', 'https://cardfolio-be.onrender.com/api/v1/users/2', {
       statusCode: 200,
       fixture: 'magicman122_binderview_data.json'
     }).as('fetchUserData');
@@ -27,11 +27,9 @@ describe('MagicDetailView Spec', () => {
     
     cy.get('.homeViewButton').eq(1).should('contain', "MTG").click()
     cy.url().should('include', '/mtg_search')
-
   })
   
   it('should display card details correctly', () => {
-    
     cy.wait('@fetchCardsView')
     cy.get('.MTGcard').first().click()
     cy.wait('@fetchCardDetails')
@@ -47,12 +45,12 @@ describe('MagicDetailView Spec', () => {
     cy.get('.MTGcard').first().click();
     cy.wait('@fetchCardDetails');
   
-    cy.intercept('POST', 'http://localhost:3000/api/v1/users/2/binders/2/binder_cards', {
+    cy.intercept('POST', 'https://cardfolio-be.onrender.com/api/v1/users/2/binders/2/binder_cards', {
       statusCode: 200,
       fixture: 'magic_card_submit.json'
     }).as('addCard');
 
-    cy.intercept('GET', 'http://localhost:3000/api/v1/users/2', {
+    cy.intercept('GET', 'https://cardfolio-be.onrender.com/api/v1/users/2', {
       statusCode: 200,
       fixture: 'magicman122_card_submit.json'
     }).as('fetchBinderView')
@@ -64,8 +62,5 @@ describe('MagicDetailView Spec', () => {
     cy.wait('@fetchBinderView')
     cy.get('.bindersButton').click()
     cy.get('.card').should('be.visible')
-    
-    
-    
   });
 })
