@@ -2,7 +2,6 @@ import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 function MagicDetailView({userData}) {
-  console.log(userData)
     const clickedCardId = useParams().cardId
     const [clickedCard, setClickedCard] = useState()
     const [selectedBinderId, setSelectedBinderId] = useState(0)
@@ -14,12 +13,11 @@ function MagicDetailView({userData}) {
   }, []);
 
     const allBinders = userData.attributes.binders.map(binder => {
-        return (
-            <option key={binder.id} value={binder.id}>
-                {binder.name}
-            </option>
-
-    )          
+      return (
+        <option key={binder.id} value={binder.id}>
+          {binder.name}
+        </option>
+      )          
 });
 
     function getCardDetails() {
@@ -33,10 +31,7 @@ function MagicDetailView({userData}) {
 
     useEffect(() => {
         getCardDetails()
-    },[])
-
-
-
+    },[clickedCardId])
 
 
     function addToBinder() {
@@ -56,27 +51,28 @@ function MagicDetailView({userData}) {
       }
     };
     
-
     if(clickedCard) {
-        return (
-            <section>
-		<header>
-			<h1>{clickedCard.name}</h1>
-		</header>
-                <img src= { clickedCard.imageUrl } alt= { clickedCard.name } />
-                <label>Users Binders:
-                  <select 
-                    name="selected binder"
-                    onChange={event => setSelectedBinderId(String(event.target.value))}
-                    value={selectedBinderId}
-                  >
-                    {allBinders}
-                  </select>
-                </label>
+      return (
+        <section>
+          <header>
+            <h1>{clickedCard.name}</h1>
+          </header>
+            <div className="card" style={{ cursor: 'pointer' }}>           
+              <img src={clickedCard.imageUrl} alt={clickedCard.name} />
+            </div>
+              <label>Users Binders:
+                <select 
+                  name="selected binder"
+                  onChange={event => setSelectedBinderId(String(event.target.value))}
+                  value={selectedBinderId}
+                >
+                {allBinders}
+                </select>
+              </label>
                 <button onClick={() => addToBinder()}>Add To Binder</button>
-                <Link to={"/mtg_search"}><button>Back</button></Link>
-            </section>
-        )
+                  <Link to={"/mtg_search"}><button>Back</button></Link>
+          </section>
+      )
     }
 }
 
