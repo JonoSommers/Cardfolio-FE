@@ -1,0 +1,39 @@
+[
+    {
+        "name": "Venusaur-EX",
+        "image_url": "https://images.pokemontcg.io/xy1/1.png",
+        "category": 0
+    },
+
+    {
+        "name": "Ampharos",
+        "image_url": "https://images.pokemontcg.io/dp3/1.png",
+        "category": 0
+    },
+
+    {
+        "name": "Aerodactyl",
+        "image_url": "https://images.pokemontcg.io/ex12/1.png",
+        "category": 0
+    },
+
+    {
+        "name": "Ancestor's Chosen",
+        "image_url": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130550&type=card",
+        "category": 1
+    },
+
+    {
+        "name": "Angel of Mercy",
+        "image_url": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=129465&type=card",
+        "category": 1
+    },
+
+    {
+        "name": "Ghost Warden",
+        "image_url": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=132105&type=card",
+        "category": 1
+    }
+
+
+]

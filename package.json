@@ -18,7 +18,8 @@
     "start": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "cypress": "cypress open"
   },
   "eslintConfig": {
     "extends": [
@@ -39,6 +40,8 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^14.1.0",
     "vite": "^6.2.0"
   }
 }
+
