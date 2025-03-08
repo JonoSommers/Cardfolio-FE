@@ -1,0 +1,21 @@
+{
+    "data": {
+        "id": "1",
+        "type": "user",
+        "attributes": {
+            "username": "PokeLax",
+            "binders": [
+                {
+                    "id": 1,
+                    "name": "Default Binder",
+                    "binders_cards": []
+                },
+                {
+                    "id": 2,
+                    "name": "test_binder",
+                    "binders_cards": []
+                }
+            ]
+        }
+    }
+}
