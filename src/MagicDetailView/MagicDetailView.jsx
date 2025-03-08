@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from 'react'
 import './MagicDetailView.css'
 
 function MagicDetailView({userData}) {
-  console.log(userData)
   const clickedCardId = useParams().cardId
   const [clickedCard, setClickedCard] = useState()
   const [selectedBinderId, setSelectedBinderId] = useState(0)

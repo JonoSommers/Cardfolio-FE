@@ -6,7 +6,6 @@ function PokeDetailView({ userData }) {
   const clickedCardId = useParams().cardId
   const [clickedCard, setClickedCard] = useState(null)
   const [selectedBinderId, setSelectedBinderId] = useState(0)
-
   const [cardStyle, setCardStyle] = useState({})
   const cardRef = useRef(null)
   
