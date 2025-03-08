@@ -53,25 +53,25 @@ Cardfolio allows you to create binders of cards and add Pokemon and Magic the ga
 # Authors and contributors
 
 ## Jono Sommers
-	- [Github](https://github.com/JonoSommers)
-	- [LinkedIn](https://www.linkedin.com/in/jonosommers/)
+[Github](https://github.com/JonoSommers)
+[LinkedIn](https://www.linkedin.com/in/jonosommers/)
 
 ## Montana Pfeifer
-	- [Github](https://github.com/Montana-Pfeifer)
-	- [LinkedIn](https://www.linkedin.com/in/montanapfeifer/)
+[Github](https://github.com/Montana-Pfeifer)
+[LinkedIn](https://www.linkedin.com/in/montanapfeifer/)
 
 ## Matthew Haefling
-	- [Github](https://github.com/mhaefling)
-	- [LinkedIn](https://www.linkedin.com/in/matthew-haefling/)
+[Github](https://github.com/mhaefling)
+[LinkedIn](https://www.linkedin.com/in/matthew-haefling/)
 
 ## Natasha Vasquez
-	- [Github](https://github.com/nvnatasha)
-	- [LinkedIn](https://www.linkedin.com/in/natasha-vasquez/)
+[Github](https://github.com/nvnatasha)
+[LinkedIn](https://www.linkedin.com/in/natasha-vasquez/)
 
 ## Joel Davalos
-	- [Github](https://github.com/jdavalos98)
-	- [LinkedIn](https://www.linkedin.com/in/joeldavalos/)
+[Github](https://github.com/jdavalos98)
+[LinkedIn](https://www.linkedin.com/in/joeldavalos/)
 
 ## Paul Knapp
-	- [Github](https://github.com/Paul-Knapp)
-	- [LinkedIn](https://www.linkedin.com/in/paul-m-knapp/)
+[Github](https://github.com/Paul-Knapp)
+[LinkedIn](https://www.linkedin.com/in/paul-m-knapp/)
