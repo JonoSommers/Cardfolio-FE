@@ -1,6 +1,3 @@
-// import users from '../fixtures/all_users_data.json'
-// import pokelax from '../pokelax_data.json'
-
 describe('Login', () => {
   beforeEach(() => {
 		cy.intercept('GET', 'https://cardfolio-be.onrender.com/api/v1/users', {
@@ -9,7 +6,7 @@ describe('Login', () => {
     })
     .as('getAllUsers');
 		
-    cy.visit('https://cardfolio-fe.onrender.com')
+    cy.visit('https://cardfolio-fe.onrender.com/')
 		cy.wait('@getAllUsers')
   })
 
