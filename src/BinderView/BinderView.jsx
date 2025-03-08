@@ -21,7 +21,7 @@ function BinderView({ userData, setUserData }) {
     	return (
 			<section className="binderCards">
 				<Link to={`/binder/${binderName}/${card.data.attributes.card.name}`}>
-					<img src={`${card.data.attributes.card.image_url}`} alt={`${card.data.attributes.card.name}`} />
+					<img className="card" src={`${card.data.attributes.card.image_url}`} alt={`${card.data.attributes.card.name}`} />
 				</Link>
 			</section>
     	)
@@ -48,39 +48,49 @@ function BinderView({ userData, setUserData }) {
 	};
 
 
-	return (
+	  return (
 		<section className="binderView">
-			<div className="top">
+			<div className="topRow">
 				<Link to={`/${userName}`}>
 					<img className="homeIcon" src={homeIcon} alt="home icon" />
 				</Link>
-					<h1 className="binderName">{binderName}</h1>
-					<button onClick={() => setShowInput(!showInput)} className="renameButton">Rename Binder</button>
-					{showInput && (
-						<form onSubmit={handleRename}>
-							<input 
-							type="text"
-							placeholder='New Name'
-							className='newBinderName'
-							value={newName}
-							onChange={(event) => setNewName(event.target.value)}/>
-							<button type="submit" >Submit</button>
-						</form>
-					)}
-				<img className="searchIcon" src={searchIcon} alt="search icon" /> 
-				<input 
-					className="searchBar"
-					type="text"
-					placeholder="Search Name..."
-					value={search}
-					onChange={(event) => setSearch(event.target.value)}
-				/>
-					</div>
-				<section className="binderCards">
-					{searchCards}
-				</section>
+				<div className="searchContainer">
+					<img className="searchIcon" src={searchIcon} alt="search icon" /> 
+					<input 
+						className="searchBar"
+						type="text"
+						placeholder="Search Name..."
+						value={search}
+						onChange={(event) => setSearch(event.target.value)}
+					/>
+				</div>
+			</div>
+	
+			<div className="binderHeader">
+				<h1 className="binderName">{binderName}</h1>
+				<button onClick={() => setShowInput(!showInput)} className="renameButton">
+					Rename Binder
+				</button>
+			</div>
+	
+			{showInput && (
+				<form className="renameForm" onSubmit={handleRename}>
+					<input 
+						type="text"
+						placeholder="New Name"
+						className="newBinderName"
+						value={newName}
+						onChange={(event) => setNewName(event.target.value)}
+					/>
+					<button className="binderSubmit" type="submit">Submit</button>
+				</form>
+			)}
+	
+			<section className="binderCards">
+				{searchCards}
+			</section>
 		</section>
-	)
+	);
 }
 
 export default BinderView

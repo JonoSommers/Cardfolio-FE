@@ -43,8 +43,7 @@ function PokeSearchView({ id, p_card_path, p_card_name }) {
     };
 
     return (
-        <section className='CardsContainer'>
-            {/* Move Link to wrap the entire card */}
+        <section className='PokemonSearchView'>
             <Link to={`/pokemon_search/${id}`} className="card-link">
                 <div
                     className="search-card"
