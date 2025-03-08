@@ -97,7 +97,7 @@ function PokeDetailView({ userData }) {
           <h1 className="PokeName">{clickedCard.data.name}</h1>
         </header>
         <div
-          className="card"
+          className="PokeDetailCard"
           ref={cardRef}
           onMouseMove={handleMouseMove}
           onTouchMove={handleMouseMove}
