@@ -35,14 +35,19 @@ Cardfolio allows you to create binders of cards and add Pokemon and Magic the ga
 # Screenshots:
 
 - Login Page:
+![login](https://github.com/user-attachments/assets/88f7d0b2-2497-49a2-9777-4ea876e36bb6)
 
 - Home Page
+![homepage](https://github.com/user-attachments/assets/a31dbd5f-c3a0-4755-bb97-ee75e80cbb63)
 
 - Pokeman Search Page
+![pokesearch](https://github.com/user-attachments/assets/203d8cd9-75ad-42a7-8afa-2f0fcf42d4ce)
 
 - Card Detail
+![detailview](https://github.com/user-attachments/assets/2766eacd-9dcc-4bba-93b8-3b6005dab5e5)
 
 - Binder View
+![binderview](https://github.com/user-attachments/assets/a17588a5-3bae-46b0-9b60-8adbaaa36099)
 
 
 # Authors and contributors
