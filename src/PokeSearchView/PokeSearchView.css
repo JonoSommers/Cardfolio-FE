@@ -3,7 +3,53 @@
     flex-wrap: wrap;
     justify-content: center;
     max-width: calc(5 * 250px + 4 * 20px); 
+    overflow-y: auto;
+    max-height: 90vh; 
+} 
+:root {
+    --color1: rgb(0, 231, 255);
+    --color2: rgb(255, 0, 231);
+    --back: url(https://cdn2.bulbagarden.net/upload/1/17/Cardback.jpg);
+} 
+.search-card {
+    position: relative;
+    overflow: hidden; 
+    margin: 20px;
+    z-index: 10;
+    touch-action: none;
+    border-radius: 5% / 3.5%;
+    box-shadow: 
+      -5px -5px 5px -5px var(--color1), 
+      5px 5px 5px -5px var(--color2), 
+      -7px -7px 10px -5px transparent, 
+      7px 7px 10px -5px transparent, 
+      0 0 5px 0px rgba(255,255,255,0),
+      0 55px 35px -20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease, box-shadow 0.2s ease;
+    will-change: transform, filter;
+    background-color: #040712;
+    background-image: var(--front);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    transform-origin: center;
+    max-width: 250px; 
+    max-height: 400px; 
 }
+.search-card .card-content {
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+}  
+.search-card:hover {
+    box-shadow: 
+      -20px -20px 30px -25px var(--color1), 
+      20px 20px 30px -25px var(--color2), 
+      -7px -7px 10px -5px var(--color1), 
+      7px 7px 10px -5px var(--color2), 
+      0 0 13px 4px rgba(255,255,255,0.3),
+      0 55px 35px -20px rgba(0, 0, 0, 0.5);
+  }
 :root {
     --color1: rgb(0, 231, 255);
     --color2: rgb(255, 0, 231);
@@ -32,15 +78,6 @@
     background-position: 50% 50%;
     transform-origin: center;
   }
-.card:hover {
-    box-shadow: 
-      -20px -20px 30px -25px var(--color1), 
-      20px 20px 30px -25px var(--color2), 
-      -7px -7px 10px -5px var(--color1), 
-      7px 7px 10px -5px var(--color2), 
-      0 0 13px 4px rgba(255,255,255,0.3),
-      0 55px 35px -20px rgba(0, 0, 0, 0.5);
-}
 .search-card:before,
 .search-card:after {
     content: "";
