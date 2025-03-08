@@ -1,0 +1,37 @@
+{
+  "data": {
+      "id": "1",
+      "type": "user",
+      "attributes": {
+          "username": "PokeLax",
+          "binders": [
+              {
+                  "id": 1,
+                  "name": "Default Binder",
+                  "binders_cards": [
+                      {
+                          "data": {
+                              "id": "1",
+                              "type": "binder_card",
+                              "attributes": {
+                                  "binder": {
+                                      "id": 1,
+                                      "name": "Default Binder"
+                                  },
+                                  "card": {
+                                      "name": "Venusar-EX",
+                                      "image_url": "https://images.pokemontcg.io/xy1/1.png",
+                                      "category": "pokemon"
+                                  },
+                                  "favorite": {
+                                      "favorite": false
+                                  }
+                              }
+                          }
+                      }
+                  ]
+              }
+          ]
+      }
+  }
+}

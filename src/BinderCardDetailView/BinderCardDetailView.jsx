@@ -7,7 +7,7 @@ function BinderCardDetailView({ userData }) {
 	const binderName = useParams().bindername
 	const binder = userData.attributes.binders.find(binder => binder.name === binderName);
 	const cardImage = binder.binders_cards.find(card => card.data.attributes.card.name === cardName)
-	const favoritesPath = `http://localhost:3000/api/v1/users/${userData.id}/binders/${binder.id}/binder_cards/${cardImage.data.id}`
+	const favoritesPath = `https://cardfolio-be.onrender.com/api/v1/users/${userData.id}/binders/${binder.id}/binder_cards/${cardImage.data.id}`
 
 	function addToFavorites() {
 		fetch(favoritesPath, {
