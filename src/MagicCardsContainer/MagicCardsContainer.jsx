@@ -8,7 +8,6 @@ const fetchMTGCards = 'https://api.magicthegathering.io/v1/cards'
 
 function MagicCardsContainer({userData}) {
     const [magicCards, setMagicCards] = useState([])
-    console.log('card: ', magicCards)
     const [magicSearch, setMagicSearch] = useState('')
     const filteredCards = magicCards.filter((card) => (
 		card.name.toLowerCase().startsWith(magicSearch.toLowerCase())
