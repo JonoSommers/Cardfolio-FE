@@ -21,13 +21,13 @@ function BinderCardDetailView({ userData }) {
 	return (
 		<section className="view">
 			<header>
-				<h1>{cardName}</h1>
+				<h1 className="detailCardName">{cardName}</h1>
 			</header>
-			<img  src={`${cardImage.data.attributes.card.image_url}`} alt={`${cardImage.data.attributes.card.name}`}/>
+			<img className="card" src={`${cardImage.data.attributes.card.image_url}`} alt={`${cardImage.data.attributes.card.name}`}/>
 			<Link to={`/binder/${binderName}`}>
-				<button>Back</button>
+				<button className="backToBinder">Back</button>
 			</Link>
-			<button onClick={() => addToFavorites()}>Add To Favorites</button>
+			<button className="addFave" onClick={() => addToFavorites()}>Add To Favorites</button>
 		</section>
 
 		
