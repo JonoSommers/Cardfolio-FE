@@ -13,7 +13,7 @@ function CreateBinder({ userData, setUserData }) {
       return;
     }
 
-    fetch(`http://localhost:3000/api/v1/users/${userData.id}/binders`, {
+    fetch(` https://cardfolio-be.onrender.com/api/v1/users/${userData.id}/binders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -22,8 +22,8 @@ function CreateBinder({ userData, setUserData }) {
         binder_name: binderName
       }),
     })
-      .then((response) =>
-        response.json().then((data) => ({ status: response.ok, data }))
+      .then((response) => response.json()
+      .then((data) => ({ status: response.ok, data }))
       )
       .then(({ status, data }) => {
         if (status) {
@@ -31,7 +31,7 @@ function CreateBinder({ userData, setUserData }) {
           fetchUser();
           navigate(`/${userData.attributes.username}`);
         } else {
-          setErrorMessage(data.error || "Error creating binder.");
+          setErrorMessage(data.error.message || "Error creating binder.");
         }
       })
       .catch(() => {
@@ -40,7 +40,7 @@ function CreateBinder({ userData, setUserData }) {
   }
 
   function fetchUser() {
-    fetch(`http://localhost:3000/api/v1/users/${userData.id}`)
+    fetch(` https://cardfolio-be.onrender.com/v1/users/${userData.id}`)
       .then((response) => response.json())
       .then((data) => {
         setUserData(data.data);

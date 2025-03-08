@@ -1,0 +1,10 @@
+{
+    "data": {
+        "id": "4",
+        "type": "binder",
+        "attributes": {
+            "name": "Test Binder",
+            "user_id": 1
+        }
+    }
+}
