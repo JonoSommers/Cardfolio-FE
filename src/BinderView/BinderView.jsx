@@ -10,25 +10,25 @@ function BinderView({ userData, setUserData }) {
 	const [showInput, setShowInput] = useState(false);
 	const [newName, setNewName] = useState("")
 	const userName = userData.attributes.username
-  	const binderName = useParams().bindername
-  	const binder = userData.attributes.binders.find(binder => binder.name === binderName);
+  const binderName = useParams().bindername
+  const binder = userData.attributes.binders.find(binder => binder.name === binderName);
 	const filteredCards = binder.binders_cards.filter((card) => (
 		card.data.attributes.card.name.toLowerCase().startsWith(search.toLowerCase())
 	))
 
 	const searchCards = filteredCards.map((card) => {
 
-    	return (
+    return (
 			<section className="binderCards">
 				<Link to={`/binder/${binderName}/${card.data.attributes.card.name}`}>
 					<img className="card" src={`${card.data.attributes.card.image_url}`} alt={`${card.data.attributes.card.name}`} />
 				</Link>
 			</section>
-    	)
+    )
 	})
 	
 	function renameBinder() {
-		fetch(`http://localhost:3000/api/v1/users/${userData.id}/binders/${binder.id}`,{
+		fetch(`https://cardfolio-be.onrender.com/api/v1/users/${userData.id}/binders/${binder.id}`,{
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json",
@@ -65,14 +65,14 @@ function BinderView({ userData, setUserData }) {
 					/>
 				</div>
 			</div>
-	
+
 			<div className="binderHeader">
 				<h1 className="binderName">{binderName}</h1>
 				<button onClick={() => setShowInput(!showInput)} className="renameButton">
 					Rename Binder
 				</button>
 			</div>
-	
+
 			{showInput && (
 				<form className="renameForm" onSubmit={handleRename}>
 					<input 
@@ -85,7 +85,7 @@ function BinderView({ userData, setUserData }) {
 					<button className="binderSubmit" type="submit">Submit</button>
 				</form>
 			)}
-	
+
 			<section className="binderCards">
 				{searchCards}
 			</section>
