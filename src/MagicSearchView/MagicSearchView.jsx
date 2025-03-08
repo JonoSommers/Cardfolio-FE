@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import React, { useState } from 'react';
 import "./MagicSearchView.css";
 
 function MagicSearchView({ id, m_card_path, m_card_name }) {
+    const magicId = useParams().cardId
     const [cardStyle, setCardStyle] = useState({});
     const handleMouseMove = (e) => {
         const pos = [e.nativeEvent.offsetX, e.nativeEvent.offsetY];
@@ -43,7 +44,7 @@ function MagicSearchView({ id, m_card_path, m_card_name }) {
 
     return (
         <section className='MagicSearchView'> 
-                <Link to={`/mtg_search/${id}`} className="card-link">
+                <Link to={`/mtg_search/${magicId}`} className="card-link">
                 <div
                     className="MTGcard"
                     onMouseMove={handleMouseMove}
