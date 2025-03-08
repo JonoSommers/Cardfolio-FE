@@ -78,7 +78,7 @@ body, html {
     max-width: 400px; 
     transition: all 0.3s ease;
 }
-.homeViewButton:hover, .bindersButton:hover, .createBinder {
+.homeViewButton:hover, .bindersButton:hover, .createBinder:hover {
     background-color: #5C7FD0;
 } 
 .card-text {
