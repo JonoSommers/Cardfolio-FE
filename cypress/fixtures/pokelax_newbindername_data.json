@@ -1,0 +1,77 @@
+{
+	"data": {
+			"id": "1",
+			"type": "user",
+			"attributes": {
+					"username": "PokeLax",
+					"binders": [
+							{
+									"id": 1,
+									"name": "New Binder Name",
+									"binders_cards": [
+											{
+													"data": {
+															"id": "1",
+															"type": "binder_card",
+															"attributes": {
+																	"binder": {
+																			"id": 1,
+																			"name": "New Binder Name"
+																	},
+																	"card": {
+																			"name": "Venusaur-EX",
+																			"image_url": "https://images.pokemontcg.io/xy1/1.png",
+																			"category": 0
+																	},
+																	"favorite": {
+																			"favorite": false
+																	}
+															}
+													}
+											},
+											{
+													"data": {
+															"id": "2",
+															"type": "binder_card",
+															"attributes": {
+																	"binder": {
+																			"id": 1,
+																			"name": "New Binder Name"
+																	},
+																	"card": {
+																			"name": "Ampharos",
+																			"image_url": "https://images.pokemontcg.io/dp3/1.png",
+																			"category": 0
+																	},
+																	"favorite": {
+																			"favorite": false
+																	}
+															}
+													}
+											},
+											{
+													"data": {
+															"id": "3",
+															"type": "binder_card",
+															"attributes": {
+																	"binder": {
+																			"id": 1,
+																			"name": "New Binder Name"
+																	},
+																	"card": {
+																			"name": "Ancestor's Chosen",
+																			"image_url": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130550&type=card",
+																			"category": 1
+																	},
+																	"favorite": {
+																			"favorite": false
+																	}
+															}
+													}
+											}
+									]
+							}
+					]
+			}
+	}
+}
