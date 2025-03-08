@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Cardfolio! ( https://cardfolio-fe.onrender.com )
+This app is for the the card collector!
+Cardfolio allows you to create binders of cards and add Pokemon and Magic the gathering cards to your binders to keep track of the cards that you own!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tech Stack:
+- React
+- React Router
+- Cypress Testing Suite
+- Ruby on Rails
+- Ruby GEMS:
+	- RSPEC
+	- PRY
+	- Faker
+	- Shoulda Matchers
+	- Simplecov
+	- Factorybot Rails
+	- Rack -Cors
 
-## Available Scripts
+# Setup & Running Instructions:
+- Clone down the Cardfolio backend with the following command:
+`git clone git@github.com:JonoSommers/cardfolio-BE.git`
+- Change into the backend directly with the following command:
+`cd cardfolio-be`
+- Install all the required gems for the backend with the command:
+`bundle install`
+- Start the backend with the following command:
+`rails server`
+- Clone this repo down to your local hard drive with the following command:
+`git clone git@github.com:JonoSommers/Cardfolio-FE.git`
+- Change into the project directory with the following command:
+`cd Cardfolio-FE`
+- Start the Frontend Server with the following command:
+`npm install` & `npm start`
 
-In the project directory, you can run:
+# Screenshots:
 
-### `npm start`
+- Login Page:
+![login](https://github.com/user-attachments/assets/88f7d0b2-2497-49a2-9777-4ea876e36bb6)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Home Page
+![homepage](https://github.com/user-attachments/assets/a31dbd5f-c3a0-4755-bb97-ee75e80cbb63)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Pokeman Search Page
+![pokesearch](https://github.com/user-attachments/assets/203d8cd9-75ad-42a7-8afa-2f0fcf42d4ce)
 
-### `npm test`
+- Card Detail
+![detailview](https://github.com/user-attachments/assets/2766eacd-9dcc-4bba-93b8-3b6005dab5e5)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Binder View
+![binderview](https://github.com/user-attachments/assets/a17588a5-3bae-46b0-9b60-8adbaaa36099)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Authors and contributors
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Jono Sommers
+	- [Github](https://github.com/JonoSommers)
+	- [LinkedIn](https://www.linkedin.com/in/jonosommers/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Montana Pfeifer
+	- [Github](https://github.com/Montana-Pfeifer)
+	- [LinkedIn](https://www.linkedin.com/in/montanapfeifer/)
 
-### `npm run eject`
+## Matthew Haefling
+	- [Github](https://github.com/mhaefling)
+	- [LinkedIn](https://www.linkedin.com/in/matthew-haefling/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Natasha Vasquez
+	- [Github](https://github.com/nvnatasha)
+	- [LinkedIn](https://www.linkedin.com/in/natasha-vasquez/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Joel Davalos
+	- [Github](https://github.com/jdavalos98)
+	- [LinkedIn](https://www.linkedin.com/in/joeldavalos/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Paul Knapp
+	- [Github](https://github.com/Paul-Knapp)
+	- [LinkedIn](https://www.linkedin.com/in/paul-m-knapp/)
