@@ -98,7 +98,7 @@ function MagicDetailView({userData}) {
 			      <h1 className="MagicName">{clickedCard.name}</h1>
 		      </header>
           <div
-            className="card"
+            className="MagicCard"
             ref={cardRef}
             onMouseMove={handleMouseMove}
             onTouchMove={handleMouseMove}
@@ -109,10 +109,10 @@ function MagicDetailView({userData}) {
               transition: 'transform 0.5s ease, box-shadow 0.2s ease',
             }}
           >
-            <img src= { clickedCard.imageUrl } alt= { clickedCard.name } />
+            <img className="MagicImg" src= { clickedCard.imageUrl } alt= { clickedCard.name } />
           </div>
           <div className="below">
-          <label>Users Binders:
+          <label className="MagicLabel">Users Binders:
             <select 
               name="selected binder"
               onChange={event => setSelectedBinderId(String(event.target.value))}
@@ -121,7 +121,7 @@ function MagicDetailView({userData}) {
               {allBinders}
             </select>
           </label>
-          <button claswsName="add" onClick={() => addToBinder()}>Add To Binder</button>
+          <button className="add" onClick={() => addToBinder()}>Add To Binder</button>
           <Link className="back" to={"/mtg_search"}><button>Back</button></Link>
           </div>
         </section>

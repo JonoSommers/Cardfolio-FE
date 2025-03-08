@@ -16,7 +16,6 @@ body {
   z-index: 10;
   position: relative;
 }
-
 .searchSection {
   display: flex;
   align-items: center;
@@ -25,8 +24,7 @@ body {
   background-color: #f1f1f1;
 }
 .homeIcon {
-  width: 30px; 
-  height: auto;
+  width: 20px; 
   cursor: pointer;
 }
 .searchBar2 {

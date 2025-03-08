@@ -43,12 +43,12 @@ select {
     --color2: rgb(255, 0, 231);
     --back: url(https://cdn2.bulbagarden.net/upload/1/17/Cardback.jpg);
 }
-.card {
+.MagicCard {
     width: 71.5vw;
     height: 100vw;
     @media screen and (min-width: 600px) {
-        width: clamp(12.9vw, 61vh, 16vw);
-        height: clamp(18vw, 85vh, 22.2vw);
+        width: clamp(12.9vw, 61vh, 17vw);
+        height: clamp(18vw, 85vh, 24.2vw);
     }
     position: relative;
     overflow: hidden;
@@ -72,7 +72,7 @@ select {
     background-position: 50% 50%;
     transform-origin: center;
 }
-.card:hover {
+.MagicCard:hover {
 box-shadow: 
     -20px -20px 30px -25px var(--color1), 
     20px 20px 30px -25px var(--color2), 
@@ -81,8 +81,8 @@ box-shadow:
     0 0 13px 4px rgba(255,255,255,0.3),
     0 55px 35px -20px rgba(0, 0, 0, 0.5);
 }
-.card:before,
-.card:after {
+.MagicCard:before,
+.MagicCard:after {
     content: "";
     position: absolute;
     left: 0;
@@ -94,7 +94,7 @@ box-shadow:
     mix-blend-mode: color-dodge;
     transition: all .33s ease;
 }
-.card:before {
+.MagicCard:before {
     background-position: 50% 50%;
     background-size: 300% 300%;
     background-image: linear-gradient(
@@ -110,7 +110,7 @@ box-shadow:
     filter: brightness(.5) contrast(1);
     z-index: 1;
 }
-.card:after {
+.MagicCard:after {
     opacity: 1;
     background-image: url("https://assets.codepen.io/13471/sparkles.gif"), 
         url(https://assets.codepen.io/13471/holo.png), 
@@ -124,19 +124,19 @@ box-shadow:
     mix-blend-mode: color-dodge;
     opacity: .75;
 }
-.card.active:after,
-.card:hover:after {
+.MagicCard.active:after,
+.MagicCard:hover:after {
     filter: brightness(1) contrast(1);
     opacity: 1;
 }
-.card.active,
-.card:hover {
+.MagicCard.active,
+.MagicCard:hover {
     animation: none;
     transition: box-shadow 0.1s ease-out;
 }
 
-.card.active:before,
-.card:hover:before {
+.MagicCard.active:before,
+.MagicCard:hover:before {
     animation: none;
     background-image: linear-gradient(
         110deg,
@@ -151,14 +151,14 @@ box-shadow:
     filter: brightness(.66) contrast(1.33);
     transition: none;
 }
-.card.active:before,
-.card:hover:before,
-.card.active:after,
-.card:hover:after {
+.MagicCard.active:before,
+.MagicCard:hover:before,
+.MagicCard.aMagicCtive:after,
+.MagicCard:hover:after {
     animation: none;
     transition: none;
 }
-.card.animated {
+.MagicCard.animated {
     transition: none;
     animation: holoCard 12s ease 0s 1;
     &:before { 

@@ -24,11 +24,9 @@ body {
     background-color: #f1f1f1; 
 }
 .homeIcon {
-    width: 30px;
-    height: auto;
+    height: 20px;
     cursor: pointer;
 }
-
 .searchBar2 {
     background-color: #fff;
     padding: 10px;
