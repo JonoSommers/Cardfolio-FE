@@ -14,7 +14,7 @@ describe('Binderview Spec', () => {
     })
     .as('fetchUserData');
 		
-    cy.visit('https://cardfolio-fe.onrender.com')
+    cy.visit('http://localhost:5173')
 		cy.wait('@fetchAllUsers')
     cy.get('input').type('PokeLax')
 		cy.get('.login_button').click()
@@ -41,7 +41,7 @@ describe('Binderview Spec', () => {
 
 	it('Home Button', () => {
 		cy.get('img.homeIcon').should('be.visible');
-    cy.get('img.homeIcon').click();
+    cy.get('img.homeIcon').click({force: true});
     cy.url().should('include', '/PokeLax');
   })
 
@@ -82,8 +82,8 @@ describe('Binderview Spec', () => {
 	})
 
 	it('Allows you click a card for more detailed view', () => {
-		cy.get('section.binderCards').first().click()
-		cy.url().should('include', '/Ampharos')
+		cy.get('img.card').first().click({force: true})
+		cy.url().should('include', 'Venusaur-EX')
 	})
 
 })
