@@ -98,7 +98,7 @@ describe('User Home Page', () => {
     
     cy.intercept('GET', 'http://localhost:3000/api/v1/users/1', { fixture: 'pokelax_data2.json' }).as('Updated Data')
     cy.get('button').click()
-    cy.wait('@Updated Data') //cy.wait can be used with a route alias to stop testing until the request has completed.
+    cy.wait('@Updated Data')
 
     cy.get('.bindersButton').eq(0).should('contain', 'Default Binder')
     cy.get('.bindersButton').eq(1).should('contain', 'test_binder')
