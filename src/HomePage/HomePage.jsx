@@ -18,13 +18,13 @@ function HomePage({ userData, setUserData }) {
 
 
   function fetchUser() {
-		fetch(`http://localhost:3000/api/v1/users/${userData.id}`)
-		  .then(response => response.json())
-		  .then((data) => {
+		fetch(`https://cardfolio-be.onrender.com/api/v1/users/${userData.id}`)
+			.then(response => response.json())
+			.then((data) => {
 			setUserData(data.data);
-		  })
-		  .catch((error) => console.error("Error fetching user data:", error));
-	  }
+		})
+			.catch((error) => console.error("Error fetching user data:", error));
+	}
 
     useEffect(() => {
       fetchUser()

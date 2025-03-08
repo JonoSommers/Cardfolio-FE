@@ -13,7 +13,7 @@ function CreateBinder({ userData, setUserData }) {
       return;
     }
 
-    fetch(`http://localhost:3000/api/v1/users/${userData.id}/binders`, {
+    fetch(`https://cardfolio-be.onrender.com/api/v1/users/${userData.id}/binders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ function CreateBinder({ userData, setUserData }) {
   }
 
   function fetchUser() {
-    fetch(`http://localhost:3000/api/v1/users/${userData.id}`)
+    fetch(`https://cardfolio-be.onrender.com/api/v1/users/${userData.id}`)
       .then((response) => response.json())
       .then((data) => {
         setUserData(data.data);
