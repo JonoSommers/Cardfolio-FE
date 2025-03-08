@@ -102,7 +102,7 @@ function PokeDetailView({ userData, setUserData }) {
       })
      
       .then(response => response.json())
-      .then(fetchUser())
+      .then(() => fetchUser())
       .catch(error => console.error("Error adding card to binder:", error))
     }
   }
