@@ -43,18 +43,16 @@ function MagicSearchView({ id, m_card_path, m_card_name }) {
 
     return (
         <section className='MagicSearchView'> 
+                <Link to={`/mtg_search/${id}`} className="card-link">
                 <div
                     className="MTGcard"
                     onMouseMove={handleMouseMove}
                     onMouseOut={handleMouseOut}
                     style={cardStyle} 
                 >
-                    <Link to={`/mtg_search/${id}`} className="card-link">
-                        <div>
-                            <img src={m_card_path} alt={m_card_name} />
-                        </div>
-                    </Link>
+                    <img src={m_card_path} alt={m_card_name} />
                 </div>
+                </Link>
         </section>
     );
 }
