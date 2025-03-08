@@ -64,7 +64,7 @@ describe('User Home Page', () => {
     cy.get('input[name="username"]').type('MagicMan122')
     cy.get('button[name=login]').click()
 
-    cy.get('.createbinder').should('not.exist')
+    cy.get('.createBinder').should('not.exist')
   });
 
   it('Loads the create Binders button if user has only one binder', () => {
@@ -73,7 +73,7 @@ describe('User Home Page', () => {
     cy.get('input[name="username"]').type('PokeLax')
     cy.get('button[name=login]').click()
 
-    cy.get('.createbinder').should('contain', 'Create A New Binder')
+    cy.get('.createBinder').should('contain', 'Create A New Binder')
   });
 
   it('Can navigate to create binder page', () => {
@@ -81,7 +81,7 @@ describe('User Home Page', () => {
     cy.get('input[name="username"]').type('PokeLax')
     cy.get('button[name=login]').click()
 
-    cy.get('.createbinder').should('contain', 'Create A New Binder').click()
+    cy.get('.createBinder').should('contain', 'Create A New Binder').click()
     cy.url().should('include', '/createbinder')
   });
 
@@ -92,8 +92,8 @@ describe('User Home Page', () => {
     cy.get('button[name=login]').click()
     cy.wait('@Initial Data')
 
-    cy.get('.createbinder').should('contain', 'Create A New Binder').click()
-    cy.get('input[name="binderName"]').type('Test Binder')
+    cy.get('.createBinder').should('contain', 'Create A New Binder').click()
+    cy.get('input').type('Test Binder')
     
     
     cy.intercept('GET', ' https://cardfolio-be.onrender.com/api/v1/users/1', { fixture: 'pokelax_data2.json' }).as('Updated Data')
@@ -111,7 +111,7 @@ describe('User Home Page', () => {
     cy.get('button[name=login]').click()
     cy.wait('@Initial Data')
 
-    cy.get('.createbinder').should('contain', 'Create A New Binder').click()
+    cy.get('.createBinder').should('contain', 'Create A New Binder').click()
     
     cy.get('button').click()
     cy.get('.error-message').should('contain', 'Please enter a binder name.')
