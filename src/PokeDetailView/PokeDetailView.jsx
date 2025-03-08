@@ -24,7 +24,7 @@ function PokeDetailView({ userData, setUserData }) {
   })
 
   function fetchUser() {
-		fetch(`http://cardfolio-be.onrender.com/api/v1/users/${userData.id}`)
+		fetch(`https://cardfolio-be.onrender.com/api/v1/users/${userData.id}`)
 		  .then(response => response.json())
       .then((data) => ({ status: response.ok, data }))
       .then(({ status, data}) => {

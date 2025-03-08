@@ -23,11 +23,11 @@ function App() {
                     <Route path="/:username" element={<HomePage setUserData={setUserData} userData={userData} />}/>
                     <Route path="/pokemon_search" element={<PokeCardsContainer userData={userData} />} />
                     <Route path="/mtg_search" element={<MagicCardsContainer userData={userData} />} />
-                    <Route path="/pokemon_search/:cardId" element={<PokeDetailView userData={userData} setUserData={setUserData}/>} />
-                    <Route path="/mtg_search/:cardId" element={<MagicDetailView userData={userData}/>} />
-                    <Route path="/binder/:bindername" element={<BinderView  userData={userData} setUserData={setUserData}/>} />
+                    <Route path="/pokemon_search/:cardId" element={<PokeDetailView userData={userData} setUserData={setUserData} />} />
+                    <Route path="/mtg_search/:cardId" element={<MagicDetailView userData={userData} />} />
+                    <Route path="/binder/:bindername" element={<BinderView  userData={userData} />} />
 					<Route path="/binder/:bindername/:cardName" element={<BinderCardDetailView userData={userData} />} />
-                    <Route path="/createbinder" element={<CreateBinder userData={userData} setUserData={setUserData}/>} />
+                    <Route path="/createbinder" element={<CreateBinder userData={userData} setUserData={setUserData} />} />
                 </Routes>
             </section>
         </div>
