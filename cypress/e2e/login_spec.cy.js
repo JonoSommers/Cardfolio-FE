@@ -3,18 +3,18 @@
 
 describe('Login', () => {
   beforeEach(() => {
-		cy.intercept('GET', 'http://localhost:3000/api/v1/users', {
+		cy.intercept('GET', 'https://cardfolio-be.onrender.com/api/v1/users', {
       statusCode: 200,
       fixture: 'all_users_data.json'
     })
     .as('getAllUsers');
 		
-    cy.visit('http://localhost:5173')
+    cy.visit('https://cardfolio-fe.onrender.com')
 		cy.wait('@getAllUsers')
   })
 
   it('is the correct URL', () => {
-    cy.url().should('contain', 'http://localhost:5173/')
+    cy.url().should('contain', 'https://cardfolio-fe.onrender.com/')
   })
 
   it('displays Cardfolio on page load', () => {
@@ -28,7 +28,7 @@ describe('Login', () => {
   })
 
   it('should create an account, display a confirmation message, and leave the username in the input field', () => {
-    cy.intercept('POST', 'http://localhost:3000/api/v1/users', {
+    cy.intercept('POST', 'https://cardfolio-be.onrender.com/api/v1/users', {
       statusCode: 200,
       fixture: 'new_user.json'
     })
@@ -44,7 +44,7 @@ describe('Login', () => {
   it('navigates a user to the Home Page upon a succesful login', () => {
     cy.get('input').type('PokeLax')
     cy.get('button.login_button').click()
-    cy.url().should('contain', 'http://localhost:5173/PokeLax')
+    cy.url().should('contain', 'https://cardfolio-fe.onrender.com/PokeLax')
   })
 
   it('should display an error message if the username does not exist', () => {

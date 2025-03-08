@@ -9,7 +9,7 @@ function Login({setUserData}) {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/v1/users")
+    fetch("https://cardfolio-be.onrender.com/api/v1/users")
       .then((response) => response.json())
       .then((data) => {
         setUsers(data.data)
@@ -26,7 +26,7 @@ function Login({setUserData}) {
       setMessage(`User ${username} not found`)
     }
     else {
-      fetch(`http://localhost:3000/api/v1/users/${foundUser.id}`)
+      fetch(`https://cardfolio-be.onrender.com/api/v1/users/${foundUser.id}`)
         .then((response) => response.json())
         .then((data) => {
           setUserData(data.data)
@@ -38,7 +38,7 @@ function Login({setUserData}) {
   
   function createUser() {
     if (username.trim()) {
-        fetch("http://localhost:3000/api/v1/users", {
+        fetch("https://cardfolio-be.onrender.com/api/v1/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
