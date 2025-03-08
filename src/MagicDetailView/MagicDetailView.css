@@ -48,7 +48,7 @@ select {
     height: 100vw;
     @media screen and (min-width: 600px) {
         width: clamp(12.9vw, 61vh, 17vw);
-        height: clamp(18vw, 85vh, 24.2vw);
+        height: clamp(18vw, 85vh, 23.2vw);
     }
     position: relative;
     overflow: hidden;
