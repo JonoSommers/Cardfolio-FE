@@ -23,7 +23,7 @@ describe('Template Spec', () => {
       }).as('getMagicCards')
     });
 
-    cy.visit('https://localhost:5173');
+    cy.visit('http://localhost:5173/');
 
     cy.get('input[name="username"]').type('PokeLax');
     cy.get('button[name="login"]').click();
