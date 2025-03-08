@@ -47,14 +47,24 @@ describe('MagicDetailView Spec', () => {
     cy.get('.MTGcard').first().click();
     cy.wait('@fetchCardDetails');
   
-    cy.intercept('POST', 'http://localhost:3000/api/v1/users/2/binders/1/binder_cards', {
+    cy.intercept('POST', 'http://localhost:3000/api/v1/users/2/binders/2/binder_cards', {
+      statusCode: 200,
+      fixture: 'magic_card_submit.json'
+    }).as('addCard');
+
+    cy.intercept('GET', 'http://localhost:3000/api/v1/users/2', {
       statusCode: 200,
       fixture: 'magicman122_card_submit.json'
-    }).as('addCard');
+    }).as('fetchBinderView')
   
     cy.get('.add').click();
     cy.wait('@addCard')
     cy.get('.back > button').click()
+    cy.get('.homeIcon').click()
+    cy.wait('@fetchBinderView')
+    cy.get('.bindersButton').click()
+    cy.get('.card').should('be.visible')
+    
     
     
   });

@@ -1,20 +1,37 @@
 {
   "data": {
       "id": "2",
-      "type": "binder_card",
+      "type": "user",
       "attributes": {
-          "binder": {
-              "id": 1,
-              "name": "Default Binder"
-          },
-          "card": {
-              "name": "Ancestor's Chosen",
-              "image_url": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130550&type=card",
-              "category": "1"
-          },
-          "favorite": {
-              "favorite": false
-          }
+          "username": "MagicMan122",
+          "binders": [
+              {
+                  "id": 1,
+                  "name": "Default Binder",
+                  "binders_cards": [
+                      {
+                          "data": {
+                              "id": "1",
+                              "type": "binder_card",
+                              "attributes": {
+                                  "binder": {
+                                      "id": 1,
+                                      "name": "Default Binder"
+                                  },
+                                  "card": {
+                                      "name": "Ancestor's Chosen",
+                                      "image_url": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130550&type=card",
+                                      "category": "magic"
+                                  },
+                                  "favorite": {
+                                      "favorite": false
+                                  }
+                              }
+                          }
+                      }
+                  ]
+              }
+          ]
       }
   }
 }
