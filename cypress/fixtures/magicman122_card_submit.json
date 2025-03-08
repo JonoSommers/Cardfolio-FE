@@ -1,0 +1,20 @@
+{
+  "data": {
+      "id": "2",
+      "type": "binder_card",
+      "attributes": {
+          "binder": {
+              "id": 1,
+              "name": "Default Binder"
+          },
+          "card": {
+              "name": "Ancestor's Chosen",
+              "image_url": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130550&type=card",
+              "category": "1"
+          },
+          "favorite": {
+              "favorite": false
+          }
+      }
+  }
+}
