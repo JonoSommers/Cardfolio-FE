@@ -29,24 +29,29 @@ describe('Template Spec', () => {
     cy.get('button[name="login"]').click();
 
     cy.get('[href="/mtg_search"] > .homeViewButton').click();
+    cy.wait('@getMagicCards'); 
   });
 
-  
+
   it('can log in and navigate to Magic search view', () => {
     cy.url().should('include', '/mtg_search');
 
-    cy.wait('@getMagicCards'); 
-
     cy.get('.MTGSearchView').should('exist');
+    cy.get('.card')
+      .should('have.length.greaterThan', 0);
     cy.get('h1').should('exist');
     cy.get('.searchIcon3').should('exist');
     cy.get('.searchBar3').should('exist');
     cy.get('.homeIcon').should('exist');
   });
-  it('can log in, navigate to Magic search, and search for a Magic card', () => {
-    cy.wait('@getMagicCards');
 
-    cy.get('input.searchBar3').type('Anc');
+  it('It can search for a Magic card', () => {
+    cy.get('input.searchBar3').type('Angel');
     cy.get('.card').should('have.length', 1); 
+  });
+
+  it('It can direct to a detail Magic card view', () => {
+    cy.get('input.searchBar3');
+     
   });
 });

@@ -23,15 +23,25 @@ describe('Template Spec', () => {
       }).as('getPokeCards')
     })
 
-    cy.visit('https://cardfolio-fe.onrender.com');
-  });
+    cy.fixture('venus_detailed_view.json').then((pokeCardDetails) => {
+      cy.intercept('GET', `https://api.pokemontcg.io/v2/cards/${pokeCardDetails.data.id}`, {
+        statusCode: 200,
+        body: pokeCardDetails
+      }).as('getPokeCardDetails');
+    });
 
-  it('can login and got to pokemon search view', () => {
+    cy.visit('https://cardfolio-fe.onrender.com');
+
     cy.get('input[name="username"]').type('PokeLax');
     cy.get('button[name="login"]').click();
     cy.get('[href="/pokemon_search"] > .homeViewButton').click();
 
+    cy.wait('@getPokeCards')
+  });
+
+  it('can login and got to pokemon search view', () => {
     cy.url().should('include', '/pokemon_search');
+
     cy.get('h1').should('exist')
     cy.get('.PokemonSearchView').should('exist');
     cy.get('.search-card')
@@ -40,7 +50,22 @@ describe('Template Spec', () => {
     cy.get('.searchBar2').should('exist')
     cy.get('.homeIcon').should('exist')
   });
-  
-  // Add test for typing input into searchbar
-  // clicking a card brings user to detailview
+
+  it('It can search for a Pokemon card', () => {
+    cy.get('input.searchBar2').type('Venus');
+    cy.get('.search-card').should('have.length', 1); 
+  });
+
+  it('It can view a Pokémon card detail', () => {
+
+    cy.get(':nth-child(1) > .card-link > .search-card').click();
+
+    cy.wait('@getPokeCardDetails');
+
+    cy.get('@getPokeCardDetails').then(({ response }) => {
+      const cardId = response.body.data.id;
+
+    cy.url().should('include', `/pokemon_search/${cardId}`);
+    });
+  });
 });
