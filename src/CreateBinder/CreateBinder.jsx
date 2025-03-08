@@ -60,12 +60,12 @@ function CreateBinder({ userData, setUserData }) {
           <label className="newName">Binder Name</label>
           <input
             type="text"
-            name="binderName"
+            name="createBinderName"
             placeholder="Enter Binder Name"
             value={binderName}
             onChange={(event) => setBinderName(event.target.value)}
           />
-          <button type="submit">Submit</button>
+          <button className="SubmitNewName" type="submit">Submit</button>
         </form>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
       </div>

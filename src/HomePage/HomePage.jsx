@@ -42,11 +42,10 @@ function HomePage({ userData, setUserData }) {
   const favoriteCards = allCards.filter(card => card.data.attributes.favorite.favorite === true);
 
   return (
-    <div className="card-container">
-      {username ? <div className="card-name">{displayName}</div> : <div>{errorMessage}</div> }
-
-      <div className="card-image">
-        <section className="buttons-container">
+    <div className="home-container">
+      <div className="home-name">{displayName}</div>
+      <div className="home-image">
+        <section className="home-buttons-container">
           <Link to={'/pokemon_search'}>
             <button className="homeViewButton">Pokemon</button>
           </Link>
@@ -54,16 +53,16 @@ function HomePage({ userData, setUserData }) {
             <button className="homeViewButton">MTG</button>
           </Link>
         </section>
-
         <section className="binders-container">
           {userData.attributes.binders.map((binder) => (
             <Link key={binder.id} to={`/binder/${binder.name}`}>
               <button className="bindersButton">{binder.name}</button>
             </Link>
           ))}
-            {userData.attributes.binders.length === 1 ? <Link to='/createbinder'><button className="createbinder">Create A New Binder</button></Link> : null }
+            {userData.attributes.binders.length === 1 ? <Link to='/createbinder'><button className="createBinder">Create A New Binder</button></Link> : null }
         </section>
-
+      </div>
+        <section className="homeDesc">
         {favoriteCards.length > 0 && (
           <section className="favorites-container">
             <h2>Favorite Cards</h2>
@@ -76,12 +75,12 @@ function HomePage({ userData, setUserData }) {
             </div>
           </section>
         )}
-				<div>
+          </section>
+				<div className="logOut">
 					<Link to={"/"}>
 						<button className="logout-button">Logout</button>
 					</Link>
 				</div>
-      </div>
     </div>
   );
 }

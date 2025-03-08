@@ -1,61 +1,55 @@
-.MagicSearchView {
+.MagicDetails {
+    display: grid;
+    justify-items: center;
+}
+
+.MagicName{
+    font-size:xx-large;
+    color: #98C8DE;
+    margin: 0px;
+}
+.MagicLabel {
+    font-size: x-large;
+    color: #98C8DE;
+    margin: 10px;
+}
+.MagicImg {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: calc(5 * 250px + 4 * 20px); 
-    overflow-y: auto;
-    max-height: 90vh; 
-} 
-:root {
-    --color1: rgb(0, 231, 255);
-    --color2: rgb(255, 0, 231);
-    --back: url(https://cdn2.bulbagarden.net/upload/1/17/Cardback.jpg);
-} 
-.MTGcard {
-    position: relative;
-    overflow: hidden; 
-    margin: 20px;
-    z-index: 10;
-    touch-action: none;
-    border-radius: 5% / 3.5%;
-    box-shadow: 
-        -5px -5px 5px -5px var(--color1), 
-        5px 5px 5px -5px var(--color2), 
-        -7px -7px 10px -5px transparent, 
-        7px 7px 10px -5px transparent, 
-        0 0 5px 0px rgba(255,255,255,0),
-        0 55px 35px -20px rgba(0, 0, 0, 0.5);
-    transition: transform 0.5s ease, box-shadow 0.2s ease;
-    will-change: transform, filter;
-    background-color: #040712;
-    background-image: var(--front);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    transform-origin: center;
-    max-width: 250px; 
-    max-height: 400px; 
 }
-.MTGcard .card-content {
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-    white-space: nowrap; 
-}  
-.MTGcard:hover {
-    box-shadow: 
-        -20px -20px 30px -25px var(--color1), 
-        20px 20px 30px -25px var(--color2), 
-        -7px -7px 10px -5px var(--color1), 
-        7px 7px 10px -5px var(--color2), 
-        0 0 13px 4px rgba(255,255,255,0.3),
-        0 55px 35px -20px rgba(0, 0, 0, 0.5);
+.below {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+} 
+select {
+    width: 9rem;
+    height: 2rem;
+}
+.add, .back button {
+    font-size: 24px; 
+    font-weight: bold;
+    padding: 18px 30px;
+    border: 4px solid black; 
+    border-radius: 15px;
+    background-color: #F5E6C8;
+    color: black;
+    cursor: pointer;
+    width: 100%;
+    max-width: 400px; 
+    transition: all 0.3s ease;
 }
 :root {
     --color1: rgb(0, 231, 255);
     --color2: rgb(255, 0, 231);
     --back: url(https://cdn2.bulbagarden.net/upload/1/17/Cardback.jpg);
 }
-.MTGcard {
+.MagicCard {
+    width: 71.5vw;
+    height: 100vw;
+    @media screen and (min-width: 600px) {
+        width: clamp(12.9vw, 61vh, 17vw);
+        height: clamp(18vw, 85vh, 24.2vw);
+    }
     position: relative;
     overflow: hidden;
     margin: 20px;
@@ -78,17 +72,17 @@
     background-position: 50% 50%;
     transform-origin: center;
 }
-.MTGcard:hover {
-    box-shadow: 
-        -20px -20px 30px -25px var(--color1), 
-        20px 20px 30px -25px var(--color2), 
-        -7px -7px 10px -5px var(--color1), 
-        7px 7px 10px -5px var(--color2), 
-        0 0 13px 4px rgba(255,255,255,0.3),
-        0 55px 35px -20px rgba(0, 0, 0, 0.5);
+.MagicCard:hover {
+box-shadow: 
+    -20px -20px 30px -25px var(--color1), 
+    20px 20px 30px -25px var(--color2), 
+    -7px -7px 10px -5px var(--color1), 
+    7px 7px 10px -5px var(--color2), 
+    0 0 13px 4px rgba(255,255,255,0.3),
+    0 55px 35px -20px rgba(0, 0, 0, 0.5);
 }
-.MTGcard:before,
-.MTGcard:after {
+.MagicCard:before,
+.MagicCard:after {
     content: "";
     position: absolute;
     left: 0;
@@ -100,7 +94,7 @@
     mix-blend-mode: color-dodge;
     transition: all .33s ease;
 }
-.MTGcard:before {
+.MagicCard:before {
     background-position: 50% 50%;
     background-size: 300% 300%;
     background-image: linear-gradient(
@@ -116,7 +110,7 @@
     filter: brightness(.5) contrast(1);
     z-index: 1;
 }
-.MTGcard:after {
+.MagicCard:after {
     opacity: 1;
     background-image: url("https://assets.codepen.io/13471/sparkles.gif"), 
         url(https://assets.codepen.io/13471/holo.png), 
@@ -130,18 +124,19 @@
     mix-blend-mode: color-dodge;
     opacity: .75;
 }
-.MTGcard.active:after,
-.MTGcard:hover:after {
+.MagicCard.active:after,
+.MagicCard:hover:after {
     filter: brightness(1) contrast(1);
     opacity: 1;
 }
-.MTGcard.active,
-.MTGcard:hover {
+.MagicCard.active,
+.MagicCard:hover {
     animation: none;
     transition: box-shadow 0.1s ease-out;
 }
-.MTGcard.active:before,
-.MTGcard:hover:before {
+
+.MagicCard.active:before,
+.MagicCard:hover:before {
     animation: none;
     background-image: linear-gradient(
         110deg,
@@ -156,14 +151,14 @@
     filter: brightness(.66) contrast(1.33);
     transition: none;
 }
-.MTGcard.active:before,
-.MTGcard:hover:before,
-.MTGcard.active:after,
-.MTGcard:hover:after {
+.MagicCard.active:before,
+.MagicCard:hover:before,
+.MagicCard.aMagicCtive:after,
+.MagicCard:hover:after {
     animation: none;
     transition: none;
 }
-.MTGcard.animated {
+.MagicCard.animated {
     transition: none;
     animation: holoCard 12s ease 0s 1;
     &:before { 
@@ -175,7 +170,6 @@
         animation: holoSparkle 12s ease 0s 1;
     }
 }
-
 @keyframes holoSparkle {
     0%, 100% {
         opacity: .75; background-position: 50% 50%; filter: brightness(1.2) contrast(1.25);
