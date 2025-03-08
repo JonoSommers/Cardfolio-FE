@@ -51,7 +51,6 @@ function BinderView({ userData }) {
 
 	  return (
 		<section className="binderView">
-			{/* Top row: Home button and search bar */}
 			<div className="topRow">
 				<Link to={`/${userName}`}>
 					<img className="homeIcon" src={homeIcon} alt="home icon" />
