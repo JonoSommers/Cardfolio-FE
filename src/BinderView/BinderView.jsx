@@ -51,7 +51,6 @@ function BinderView({ userData }) {
 
 	  return (
 		<section className="binderView">
-			{/* Top row: Home button and search bar */}
 			<div className="topRow">
 				<Link to={`/${userName}`}>
 					<img className="homeIcon" src={homeIcon} alt="home icon" />
@@ -67,16 +66,12 @@ function BinderView({ userData }) {
 					/>
 				</div>
 			</div>
-	
-			{/* Second row: Binder name and rename button */}
 			<div className="binderHeader">
 				<h1 className="binderName">{binderName}</h1>
 				<button onClick={() => setShowInput(!showInput)} className="renameButton">
 					Rename Binder
 				</button>
 			</div>
-	
-			{/* Rename binder input (conditionally shown) */}
 			{showInput && (
 				<form className="renameForm" onSubmit={handleRename}>
 					<input 
@@ -89,8 +84,6 @@ function BinderView({ userData }) {
 					<button className="binderSubmit" type="submit">Submit</button>
 				</form>
 			)}
-	
-			{/* Binder cards section */}
 			<section className="binderCards">
 				{searchCards}
 			</section>

@@ -34,19 +34,12 @@
     margin-top: 5px;
 }
 .binderCards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.4em;
-}
-@media screen and (max-width: 1000px) {
-    .binderCards {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-@media screen and (max-width: 600px) {
-    .binderCards {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: calc(5 * 250px + 4 * 20px); 
+  overflow-y: auto;
+  max-height: 90vh; 
 }
 .binderName {
     font-size:xx-large;
