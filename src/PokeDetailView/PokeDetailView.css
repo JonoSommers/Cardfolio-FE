@@ -14,6 +14,8 @@
 }
 .PokeImg {
     display: flex;
+    width: 334px;
+    height: 500px;
 }
 .below {
     display:flex;

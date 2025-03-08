@@ -65,14 +65,14 @@ function BinderView({ userData, setUserData }) {
 					/>
 				</div>
 			</div>
-	
+
 			<div className="binderHeader">
 				<h1 className="binderName">{binderName}</h1>
 				<button onClick={() => setShowInput(!showInput)} className="renameButton">
 					Rename Binder
 				</button>
 			</div>
-	
+
 			{showInput && (
 				<form className="renameForm" onSubmit={handleRename}>
 					<input 
@@ -85,7 +85,7 @@ function BinderView({ userData, setUserData }) {
 					<button className="binderSubmit" type="submit">Submit</button>
 				</form>
 			)}
-	
+
 			<section className="binderCards">
 				{searchCards}
 			</section>
