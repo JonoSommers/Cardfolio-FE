@@ -2,14 +2,14 @@ describe('Template Spec', () => {
   beforeEach(() => {
     
     cy.fixture('all_users_data.json').then((usersData) => {
-      cy.intercept('GET', 'http://localhost:3000/api/v1/users', {
+      cy.intercept('GET', 'https://cardfolio-be.onrender.com/api/v1/users', {
         statusCode: 200,
         body: usersData
       }).as('getUsers');
     });
     
     cy.fixture('pokelax_data.json').then((userData) => {
-      cy.intercept('GET', `http://localhost:3000/api/v1/users/${userData.data.id}`, {
+      cy.intercept('GET', `https://cardfolio-be.onrender.com/api/v1/users/${userData.data.id}`, {
         statusCode: 200,
         body: userData,
       }).as('getUserDetails');
@@ -46,7 +46,7 @@ describe('Template Spec', () => {
     cy.get('.PokemonSearchView').should('exist');
     cy.get('.search-card')
       .should('have.length.greaterThan', 0);
-    cy.get('.searchIcon2').should('exist')
+    cy.get('.searchIcon3').should('exist')
     cy.get('.searchBar2').should('exist')
     cy.get('.homeIcon').should('exist')
   });
