@@ -1,4 +1,5 @@
- [
+ { 
+  "cards":[
     {
       "id": "1",
       "name": "Ancestor's Chosen",
@@ -18,4 +19,4 @@
       "category": 1
     }
   ]
-
+ }

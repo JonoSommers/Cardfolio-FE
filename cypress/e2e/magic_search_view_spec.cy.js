@@ -19,26 +19,34 @@ describe('Template Spec', () => {
     cy.fixture(`magic_cards_view.json`).then((magicCards) => {
       cy.intercept('GET', `https://api.magicthegathering.io/v1/cards`, {
         statusCode: 200,
-        body: magicCards,
+        body: magicCards
       }).as('getMagicCards')
     });
 
     cy.visit('https://cardfolio-fe.onrender.com');
-  });
 
-  it('can login and got to magic search view', () => {
-    // console.log("magic: ", magicCards)
     cy.get('input[name="username"]').type('PokeLax');
     cy.get('button[name="login"]').click();
-    cy.get('[href="/mtg_search"] > .homeViewButton').click();
 
-    cy.url().should('include', '/mtg_search');
-    // cy.get('h1').should('exist')
-    // cy.get('.MagicSearchView').should('exist');
-    
-    // cy.get('.searchIcon3').should('exist')
-    // cy.get('.searchBar3').should('exist')
-    // cy.get('.homeIcon').should('exist')
+    cy.get('[href="/mtg_search"] > .homeViewButton').click();
   });
+
   
+  it('can log in and navigate to Magic search view', () => {
+    cy.url().should('include', '/mtg_search');
+
+    cy.wait('@getMagicCards'); 
+
+    cy.get('.MTGSearchView').should('exist');
+    cy.get('h1').should('exist');
+    cy.get('.searchIcon3').should('exist');
+    cy.get('.searchBar3').should('exist');
+    cy.get('.homeIcon').should('exist');
+  });
+  it('can log in, navigate to Magic search, and search for a Magic card', () => {
+    cy.wait('@getMagicCards');
+
+    cy.get('input.searchBar3').type('Anc');
+    cy.get('.card').should('have.length', 1); 
+  });
 });
