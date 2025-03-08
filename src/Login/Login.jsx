@@ -25,13 +25,15 @@ function Login({setUserData}) {
     if (!foundUser) {
       setMessage(`User ${username} not found`)
     }
-		fetch(`https://cardfolio-be.onrender.com/api/v1/users/${foundUser.id}`)
-			.then((response) => response.json())
-			.then((data) => {
-				setUserData(data.data)
-        navigate(`/${foundUser.attributes.username}`)
-			})
-			.catch((error) => console.log(error))
+    else {
+      fetch(`https://cardfolio-be.onrender.com/api/v1/users/${foundUser.id}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setUserData(data.data)
+          navigate(`/${foundUser.attributes.username}`)
+        })
+        .catch((error) => console.log(error))
+    }
   }
   
   function createUser() {
