@@ -1,7 +1,7 @@
 describe('User Home Page', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'http://localhost:3000/api/v1/users', { fixture: 'all_users_data.json' }).as('AllUsers_data')
-    cy.intercept('GET', 'http://localhost:3000/api/v1/users/2', { fixture: 'magicman122_data.json' }).as('MagicMan_data')
+    cy.intercept('GET', ' https://cardfolio-be.onrender.com/api/v1/users', { fixture: 'all_users_data.json' }).as('AllUsers_data')
+    cy.intercept('GET', ' https://cardfolio-be.onrender.com/api/v1/users/2', { fixture: 'magicman122_data.json' }).as('MagicMan_data')
     cy.visit('https://cardfolio-fe.onrender.com')
   })
   
@@ -68,7 +68,7 @@ describe('User Home Page', () => {
   });
 
   it('Loads the create Binders button if user has only one binder', () => {
-    cy.intercept('GET', 'http://localhost:3000/api/v1/users/1', { fixture: 'pokelax_data.json' })
+    cy.intercept('GET', ' https://cardfolio-be.onrender.com/api/v1/users/1', { fixture: 'pokelax_data.json' })
 
     cy.get('input[name="username"]').type('PokeLax')
     cy.get('button[name=login]').click()
@@ -77,7 +77,7 @@ describe('User Home Page', () => {
   });
 
   it('Can navigate to create binder page', () => {
-    cy.intercept('GET', 'http://localhost:3000/api/v1/users/1', { fixture: 'pokelax_data.json' })
+    cy.intercept('GET', ' https://cardfolio-be.onrender.com/api/v1/users/1', { fixture: 'pokelax_data.json' })
     cy.get('input[name="username"]').type('PokeLax')
     cy.get('button[name=login]').click()
 
@@ -86,8 +86,8 @@ describe('User Home Page', () => {
   });
 
   it('Can create a new binder', () => {
-    cy.intercept('GET', 'http://localhost:3000/api/v1/users/1', { fixture: 'pokelax_data.json' }).as('Initial Data')
-    cy.intercept('POST', 'http://localhost:3000/api/v1/users/1/binders', { fixture: 'test_binder.json' }).as('Create Binder')
+    cy.intercept('GET', ' https://cardfolio-be.onrender.com/api/v1/users/1', { fixture: 'pokelax_data.json' }).as('Initial Data')
+    cy.intercept('POST', ' https://cardfolio-be.onrender.com/api/v1/users/1/binders', { fixture: 'test_binder.json' }).as('Create Binder')
     cy.get('input[name="username"]').type('PokeLax')
     cy.get('button[name=login]').click()
     cy.wait('@Initial Data')
@@ -96,7 +96,7 @@ describe('User Home Page', () => {
     cy.get('input[name="binderName"]').type('Test Binder')
     
     
-    cy.intercept('GET', 'http://localhost:3000/api/v1/users/1', { fixture: 'pokelax_data2.json' }).as('Updated Data')
+    cy.intercept('GET', ' https://cardfolio-be.onrender.com/api/v1/users/1', { fixture: 'pokelax_data2.json' }).as('Updated Data')
     cy.get('button').click()
     cy.wait('@Updated Data')
 
@@ -105,8 +105,8 @@ describe('User Home Page', () => {
   });
 
   it('Shows an error message if binder name is not entered', () => {
-    cy.intercept('GET', 'http://localhost:3000/api/v1/users/1', { fixture: 'pokelax_data.json' }).as('Initial Data')
-    cy.intercept('POST', 'http://localhost:3000/api/v1/users/1/binders', { fixture: 'test_binder.json' }).as('Create Binder')
+    cy.intercept('GET', ' https://cardfolio-be.onrender.com/api/v1/users/1', { fixture: 'pokelax_data.json' }).as('Initial Data')
+    cy.intercept('POST', ' https://cardfolio-be.onrender.com/api/v1/users/1/binders', { fixture: 'test_binder.json' }).as('Create Binder')
     cy.get('input[name="username"]').type('PokeLax')
     cy.get('button[name=login]').click()
     cy.wait('@Initial Data')
