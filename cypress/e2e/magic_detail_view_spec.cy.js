@@ -23,6 +23,13 @@ describe('Template Spec', () => {
       }).as('getMagicCards')
     });
 
+    cy.fixture(`ancestor_detail_view.json`).then((card) => {
+      cy.intercept('GET', `https://api.magicthegathering.io/v1/cards/${card.id}`, {
+        statusCode: 200,
+        body: card
+      }).as('getCard')
+    });
+
     cy.visit('http://localhost:5173/');
 
     cy.get('input[name="username"]').type('PokeLax');
@@ -43,5 +50,12 @@ describe('Template Spec', () => {
     cy.get('.searchBar3').should('exist');
     cy.get('.homeIcon').should('exist');
   });
+
+  it('can click on a card and go to detailed view', () => {
+    cy.get('.MTGSearchView .card:first').click();
+    cy.wait('@getCard')
+  })
+
+
 })
 
