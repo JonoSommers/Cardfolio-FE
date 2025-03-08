@@ -10,8 +10,8 @@ function BinderView({ userData, setUserData }) {
 	const [showInput, setShowInput] = useState(false);
 	const [newName, setNewName] = useState("")
 	const userName = userData.attributes.username
-  const binderName = useParams().bindername
-  const binder = userData.attributes.binders.find(binder => binder.name === binderName);
+  	const binderName = useParams().bindername
+  	const binder = userData.attributes.binders.find(binder => binder.name === binderName);
 	const filteredCards = binder.binders_cards.filter((card) => (
 		card.data.attributes.card.name.toLowerCase().startsWith(search.toLowerCase())
 	))
