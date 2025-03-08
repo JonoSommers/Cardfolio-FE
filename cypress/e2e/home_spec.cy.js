@@ -1,10 +1,8 @@
 describe('User Home Page', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'http://localhost:3000/api/v1/users', { fixture: 'all_users_data.json' })
-    cy.intercept('GET', 'http://localhost:3000/api/v1/users/2', { fixture: 'magicman122_data.json' })
-    // cy.intercept('POST', 'http://localhost:3000/api/v1/users/1/binders', { fixture: 'pokelax_binders.json'})
+    cy.intercept('GET', 'http://localhost:3000/api/v1/users', { fixture: 'all_users_data.json' }).as('AllUsers_data')
+    cy.intercept('GET', 'http://localhost:3000/api/v1/users/2', { fixture: 'magicman122_data.json' }).as('MagicMan_data')
     cy.visit('https://cardfolio-fe.onrender.com')
-  
   })
   
   it('Can access the homepage by logging in', () => {
@@ -80,15 +78,42 @@ describe('User Home Page', () => {
 
   it('Can navigate to create binder page', () => {
     cy.intercept('GET', 'http://localhost:3000/api/v1/users/1', { fixture: 'pokelax_data.json' })
-
     cy.get('input[name="username"]').type('PokeLax')
     cy.get('button[name=login]').click()
 
     cy.get('.createbinder').should('contain', 'Create A New Binder').click()
+    cy.url().should('include', '/createbinder')
   });
 
   it('Can create a new binder', () => {
-    cy.intercept('GET', 'http://localhost:3000/api/v1/users/1', { fixture: 'pokelax_data.json' })
-  })
+    cy.intercept('GET', 'http://localhost:3000/api/v1/users/1', { fixture: 'pokelax_data.json' }).as('Initial Data')
+    cy.intercept('POST', 'http://localhost:3000/api/v1/users/1/binders', { fixture: 'test_binder.json' }).as('Create Binder')
+    cy.get('input[name="username"]').type('PokeLax')
+    cy.get('button[name=login]').click()
+    cy.wait('@Initial Data')
 
+    cy.get('.createbinder').should('contain', 'Create A New Binder').click()
+    cy.get('input[name="binderName"]').type('Test Binder')
+    
+    
+    cy.intercept('GET', 'http://localhost:3000/api/v1/users/1', { fixture: 'pokelax_data2.json' }).as('Updated Data')
+    cy.get('button').click()
+    cy.wait('@Updated Data') //cy.wait can be used with a route alias to stop testing until the request has completed.
+
+    cy.get('.bindersButton').eq(0).should('contain', 'Default Binder')
+    cy.get('.bindersButton').eq(1).should('contain', 'test_binder')
+  });
+
+  it('Shows an error message if binder name is not entered', () => {
+    cy.intercept('GET', 'http://localhost:3000/api/v1/users/1', { fixture: 'pokelax_data.json' }).as('Initial Data')
+    cy.intercept('POST', 'http://localhost:3000/api/v1/users/1/binders', { fixture: 'test_binder.json' }).as('Create Binder')
+    cy.get('input[name="username"]').type('PokeLax')
+    cy.get('button[name=login]').click()
+    cy.wait('@Initial Data')
+
+    cy.get('.createbinder').should('contain', 'Create A New Binder').click()
+    
+    cy.get('button').click()
+    cy.get('.error-message').should('contain', 'Please enter a binder name.')
+  });
 });
