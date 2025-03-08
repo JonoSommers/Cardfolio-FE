@@ -5,6 +5,8 @@ import "./HomePage.css";
 function HomePage({ userData, setUserData }) {
   const displayName = useParams().username;
   const [allCards, setAllCards] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
+
 
   useEffect(() => {
     if (userData?.attributes?.binders?.length > 0) {
@@ -20,10 +22,17 @@ function HomePage({ userData, setUserData }) {
   function fetchUser() {
 		fetch(`http://cardfolio-be.onrender.com/api/v1/users/${userData.id}`)
 		  .then(response => response.json())
-		  .then((data) => {
-			setUserData(data.data);
-		  })
-		  .catch((error) => console.error("Error fetching user data:", error));
+      .then((data) => ({ status: response.ok, data }))
+      .then(({ status, data}) => {
+        if (status) {
+          setUserData(data.data);
+        } else {
+          setErrorMessage(data.error.message || "Error Fetching User Data.");
+        }
+      })
+		  .catch(() =>{
+        setErrorMessage("An error occured Please try again later")
+      });
 	  }
 
     useEffect(() => {
@@ -34,7 +43,7 @@ function HomePage({ userData, setUserData }) {
 
   return (
     <div className="card-container">
-      <div className="card-name">{displayName}</div>
+      {username ? <div className="card-name">{displayName}</div> : <div>{errorMessage}</div> }
 
       <div className="card-image">
         <section className="buttons-container">

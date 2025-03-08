@@ -22,8 +22,8 @@ function CreateBinder({ userData, setUserData }) {
         binder_name: binderName
       }),
     })
-      .then((response) =>
-        response.json().then((data) => ({ status: response.ok, data }))
+      .then((response) => response.json()
+      .then((data) => ({ status: response.ok, data }))
       )
       .then(({ status, data }) => {
         if (status) {
