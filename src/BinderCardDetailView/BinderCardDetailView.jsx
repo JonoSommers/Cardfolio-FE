@@ -16,6 +16,7 @@ function BinderCardDetailView({ userData }) {
 		.then(response => response.json())
 		.then(data => {console.log(data)})
 		.catch(error => console.log('message: ', error))
+		alert('This card has been added to your favorites!')
 	}
 	
 	return (

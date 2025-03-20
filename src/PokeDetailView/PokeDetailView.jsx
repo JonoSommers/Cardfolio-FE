@@ -8,6 +8,31 @@ function PokeDetailView({ userData, setUserData }) {
   const [selectedBinderId, setSelectedBinderId] = useState(0)
   const [cardStyle, setCardStyle] = useState({})
   const cardRef = useRef(null)
+
+  function fetchUser() {
+    fetch(`https://cardfolio-be.onrender.com/api/v1/users/${userData.id}`)
+      .then(response => response.json())
+      .then((data) => ({ status: response.ok, data }))
+      .then(({ status, data}) => {
+        if (status) {
+          setUserData(data.data);
+        } else {
+          setErrorMessage(data.error.message || "Error Fetching User Data.");
+        }
+      })
+      .catch(() =>{
+        setErrorMessage("An error occured Please try again later")
+      });
+    }
+
+  function getCardDetails() {
+    fetch(`https://api.pokemontcg.io/v2/cards/${clickedCardId}`)
+      .then(response => response.json())
+      .then(data => {
+        setClickedCard(data)
+      })
+      .catch(error => console.log('message: ', error.message))
+  }
   
   useEffect(() => {
     if (userData?.attributes?.binders?.length > 0) {
@@ -78,6 +103,7 @@ function PokeDetailView({ userData, setUserData }) {
       .then(response => response.json())
       .then(() => fetchUser())
       .catch(error => console.error("Error adding card to binder:", error))
+      alert(`This card has been added to your binder!`)
     }
   }
 

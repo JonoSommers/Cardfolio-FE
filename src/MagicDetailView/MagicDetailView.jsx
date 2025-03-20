@@ -88,6 +88,7 @@ function MagicDetailView({userData}) {
         })
         .then(response => response.json())
         .catch(error => console.error("Error adding card to binder:", error))
+        alert(`This card has been added to your binder!`)
       }
     };
     
