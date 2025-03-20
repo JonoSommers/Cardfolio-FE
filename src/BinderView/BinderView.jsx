@@ -1,10 +1,10 @@
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { useState, userEffect } from 'react'
+import { useState } from 'react'
 import homeIcon from '../icons/home.png'
 import searchIcon from '../icons/search.png'
 import './BinderView.css'
 
-function BinderView({ userData, setUserData }) {
+function BinderView({ userData }) {
 	const navigate = useNavigate();
 	const [search, setSearch] = useState('')
 	const [showInput, setShowInput] = useState(false);
@@ -17,6 +17,8 @@ function BinderView({ userData, setUserData }) {
 	))
 
 	const searchCards = filteredCards.map((card) => {
+
+	
 
     return (
 			<section className="binderCards">

@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
 import './PokeDetailView.css'
 
-function PokeDetailView({ userData }) {
+function PokeDetailView({ userData, setUserData }) {
   const clickedCardId = useParams().cardId
   const [clickedCard, setClickedCard] = useState(null)
   const [selectedBinderId, setSelectedBinderId] = useState(0)
@@ -22,15 +22,6 @@ function PokeDetailView({ userData }) {
       </option>
     )
   })
-
-  function getCardDetails() {
-    fetch(`https://api.pokemontcg.io/v2/cards/${clickedCardId}`)
-      .then(response => response.json())
-      .then(data => {
-        setClickedCard(data)
-      })
-      .catch(error => console.log('message: ', error.message))
-  }
 
   useEffect(() => {
     getCardDetails()
@@ -85,6 +76,7 @@ function PokeDetailView({ userData }) {
         })
       })
       .then(response => response.json())
+      .then(() => fetchUser())
       .catch(error => console.error("Error adding card to binder:", error))
     }
   }
